@@ -1,0 +1,29 @@
+mode: "accuracy-limited"
+
+# Benchmark Function: "monte-carlo" or "sieve-of-eratosthenes"
+benchmark: "monte-carlo"
+
+# Each batch run length (seconds) for Artillery
+batch_duration: 60
+
+# Total runs for each batch
+arrival_count: 120
+
+# The desired CI width threshold in ms for the 95% CI
+desired_ci_width: 5
+
+# Artillery scenarios for each cloud provider (AWS and GCP)
+artillery_scenarios: 
+  aws:
+    path: 
+    target: 
+    region: 
+    loggroup: 
+  gcp:
+    path: 
+    target: 
+    region: 
+    projectid: 
+
+# Upper limit on how many times we run
+max_batches: 10

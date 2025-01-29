@@ -1,0 +1,11 @@
+{
+    "name": "gcp-function",
+    "version": "1.0.0",
+    "dependencies": {
+      "@google-cloud/functions-framework": "^3.4.2"
+    },
+    "scripts": {
+      "start": "functions-framework --target=sieveOfEratosthenes"
+    }
+  }
+  

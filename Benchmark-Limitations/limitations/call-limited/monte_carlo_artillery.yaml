@@ -1,0 +1,27 @@
+# limitations/call-limited/monte_carlo_artillery.yaml
+config:
+  phases:
+    - duration: __DURATION__
+      arrivalCount: __ARRIVALCOUNT__
+
+scenarios:
+  - flow:
+      - post:
+          url: "{{ target }}"
+          json:
+            trials: __INPUT__
+          capture:
+            - json: "$.uniqueId"
+              as: uniqueId
+            - json: "$.estimatedPi"
+              as: estimatedPi
+            - json: "$.trials"
+              as: trials
+          expect:
+            - statusCode: 200
+            - contentType: "application/json"
+      - log: |
+          Unique ID: {{ uniqueId }},
+          Pi: {{ estimatedPi }},
+          Trials: {{ trials }}
+    name: "Monte-Carlo"

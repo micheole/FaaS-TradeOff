@@ -1,0 +1,11 @@
+argcomplete==3.5.3
+numpy==2.2.2
+pandas==2.2.3
+python-dateutil==2.9.0.post0
+pytz==2024.2
+PyYAML==6.0.2
+six==1.17.0
+tomlkit==0.13.2
+tzdata==2024.2
+xmltodict==0.14.2
+yq==3.4.3

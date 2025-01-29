@@ -1,0 +1,23 @@
+mode: "money-limited"
+
+# Benchmark Function: "monte-carlo" or "sieve-of-eratosthenes"
+benchmark: "monte-carlo"
+
+# The maximum budget in USD
+total_budget: 0.0005
+
+# Artillery scenarios for each cloud provider (AWS and GCP)
+artillery_scenarios: 
+  aws:
+    path: 
+    target: 
+    region: 
+    loggroup: 
+  gcp:
+    path: 
+    target: 
+    region: 
+    projectid: 
+
+# If you want to limit how many times we can keep running
+max_batches: 10
