@@ -2,7 +2,8 @@
 variable "gcp_project" {
   description = "The GCP project to deploy resources to"
   type        = string
-  default     = "monte_carlo_project"  # Default value
+  default     = "monte-carlo-estimation-testing"
+  # default     = "monte_carlo_project" 
 }
 
 # Define the GCP region
@@ -16,6 +17,7 @@ variable "gcp_region" {
 variable "bucket_name" {
   description = "The name of the GCP Storage bucket for the function"
   type        = string
+  # default     = "monte-carlo-estimation-test-v1"
   default     = "monte_carlo_bucket_name"
 }
 
@@ -53,7 +55,7 @@ variable "function_memory_mb" {
 variable "service_account_name" {
   description = "The name of the service account for the Cloud Function"
   type        = string
-  default     = "function-service-account"
+  default     = "your-service-account-name"
 }
 
 variable "service_account_display_name" {

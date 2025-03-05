@@ -57,18 +57,6 @@ if [ ! -f "$SCENARIO_PATH" ]; then
   exit 1
 fi
 
-# COLD_INPUT=1000000
-# COLD_DURATION=15
-# COLD_ARRIVAL_RATE=3
-
-# WARMING_UP_ARTILLERY_CONFIG="limitations/time-limited/temp_artillery_config_warming_up.yaml"
-
-# sed -e "s/__INPUT__/$COLD_INPUT/" \
-#     -e "s/__DURATION__/$COLD_DURATION/" \
-#     -e "s/__ARRIVALRATE__/$COLD_ARRIVAL_RATE/" "$SCENARIO_PATH" > "$WARMING_UP_ARTILLERY_CONFIG"
-
-# rm -f "$WARMING_UP_ARTILLERY_CONFIG"
-
 for INPUT_PARAM in "$INPUT_PARAM1" "$INPUT_PARAM2"; do
   # Define the output log file
   TRIGGER_LOG="logs/tmp/${CONFIG_NAME}/trigger_output_${PROVIDER}_${CONFIG_NAME}-input${INPUT_PARAM}-uniqueid-$UNIQUE_ID.tmp"

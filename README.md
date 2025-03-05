@@ -46,6 +46,7 @@ Before running experiments, ensure you have the following:
     ```
 * **Dependencies:** Install the required Python packages:
     ```bash
+    python3 -m venv venv
     pip install -r requirements.txt
     ```
 

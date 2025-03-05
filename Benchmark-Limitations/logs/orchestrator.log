@@ -1,206 +1,88 @@
 ====================================================================
- Orchestrator: Starting benchmark with configuration 'money-limited' and provider 'aws'
+ Orchestrator: Starting benchmark with configuration 'call-limited' and provider 'aws'
 ====================================================================
-Configuration file found: configurations/money-limited.yaml
-Limitation mode identified: money-limited
-Executing trigger script: limitations/money-limited/trigger_function.sh
+Configuration file found: configurations/call-limited.yaml
+Limitation mode identified: call-limited
+Executing trigger script: limitations/call-limited/trigger_function.sh
 ====================================================================
- Money-Limited Trigger: Starting benchmark with config 'money-limited' and provider 'aws'
+ Call-Limited Trigger: Starting benchmark with config 'call-limited' and provider 'aws'
 ====================================================================
 Running Artillery for provider: aws
-Artillery Config: limitations/money-limited/temp_artillery_config_money-limited_aws_2025-02-23_16-08-55-42849.yaml
-Artillery run for aws completed. Output appended to logs/tmp/money-limited/trigger_output_aws_money-limited-input5000000-uniqueid-2025-02-23_16-08-55-42849.tmp
-Temporary Artillery config 'limitations/money-limited/temp_artillery_config_money-limited_aws_2025-02-23_16-08-55-42849.yaml' deleted.
-Processing: logs/tmp/money-limited/trigger_output_aws_money-limited-input5000000-uniqueid-2025-02-23_16-08-55-42849.tmp
-Processed log saved to logs/tmp/money-limited/trigger_output_aws_money-limited-input5000000-uniqueid-2025-02-23_16-08-55-42849.log
-Finished processing logs/tmp/money-limited/trigger_output_aws_money-limited-input5000000-uniqueid-2025-02-23_16-08-55-42849.tmp.
-Processing log file for cost calculation: logs/tmp/money-limited/trigger_output_aws_money-limited-input5000000-uniqueid-2025-02-23_16-08-55-42849.log
-Batch 1 cost: 0.0004331936 | Total cost: 0.0004331936 | Budget: 0.005
+Artillery Config: limitations/call-limited/temp_artillery_config_call-limited_aws_5000000_2025-03-05_22-24-40-62089.yaml
+Artillery run for aws completed. Output appended to logs/tmp/call-limited/trigger_output_aws_call-limited-input5000000-uniqueid-2025-03-05_22-24-40-62089.tmp
+Temporary Artillery config 'limitations/call-limited/temp_artillery_config_call-limited_aws_5000000_2025-03-05_22-24-40-62089.yaml' deleted.
 Running Artillery for provider: aws
-Artillery Config: limitations/money-limited/temp_artillery_config_money-limited_aws_2025-02-23_16-08-55-42849.yaml
-Artillery run for aws completed. Output appended to logs/tmp/money-limited/trigger_output_aws_money-limited-input5000000-uniqueid-2025-02-23_16-08-55-42849.tmp
-Temporary Artillery config 'limitations/money-limited/temp_artillery_config_money-limited_aws_2025-02-23_16-08-55-42849.yaml' deleted.
-Processing: logs/tmp/money-limited/trigger_output_aws_money-limited-input5000000-uniqueid-2025-02-23_16-08-55-42849.tmp
-Processed log saved to logs/tmp/money-limited/trigger_output_aws_money-limited-input5000000-uniqueid-2025-02-23_16-08-55-42849.log
-Finished processing logs/tmp/money-limited/trigger_output_aws_money-limited-input5000000-uniqueid-2025-02-23_16-08-55-42849.tmp.
-Processing log file for cost calculation: logs/tmp/money-limited/trigger_output_aws_money-limited-input5000000-uniqueid-2025-02-23_16-08-55-42849.log
-Batch 2 cost: 0.0008695910 | Total cost: 0.0013027846 | Budget: 0.005
-Running Artillery for provider: aws
-Artillery Config: limitations/money-limited/temp_artillery_config_money-limited_aws_2025-02-23_16-08-55-42849.yaml
-Artillery run for aws completed. Output appended to logs/tmp/money-limited/trigger_output_aws_money-limited-input5000000-uniqueid-2025-02-23_16-08-55-42849.tmp
-Temporary Artillery config 'limitations/money-limited/temp_artillery_config_money-limited_aws_2025-02-23_16-08-55-42849.yaml' deleted.
-Processing: logs/tmp/money-limited/trigger_output_aws_money-limited-input5000000-uniqueid-2025-02-23_16-08-55-42849.tmp
-Processed log saved to logs/tmp/money-limited/trigger_output_aws_money-limited-input5000000-uniqueid-2025-02-23_16-08-55-42849.log
-Finished processing logs/tmp/money-limited/trigger_output_aws_money-limited-input5000000-uniqueid-2025-02-23_16-08-55-42849.tmp.
-Processing log file for cost calculation: logs/tmp/money-limited/trigger_output_aws_money-limited-input5000000-uniqueid-2025-02-23_16-08-55-42849.log
-Batch 3 cost: 0.0013037972 | Total cost: 0.0026065818 | Budget: 0.005
-Budget exceeded. Stopping execution.
-Running Artillery for provider: aws
-Artillery Config: limitations/money-limited/temp_artillery_config_money-limited_aws_2025-02-23_16-08-55-42849.yaml
-Artillery run for aws completed. Output appended to logs/tmp/money-limited/trigger_output_aws_money-limited-input5250000-uniqueid-2025-02-23_16-08-55-42849.tmp
-Temporary Artillery config 'limitations/money-limited/temp_artillery_config_money-limited_aws_2025-02-23_16-08-55-42849.yaml' deleted.
-Processing: logs/tmp/money-limited/trigger_output_aws_money-limited-input5250000-uniqueid-2025-02-23_16-08-55-42849.tmp
-Processed log saved to logs/tmp/money-limited/trigger_output_aws_money-limited-input5250000-uniqueid-2025-02-23_16-08-55-42849.log
-Finished processing logs/tmp/money-limited/trigger_output_aws_money-limited-input5250000-uniqueid-2025-02-23_16-08-55-42849.tmp.
-Processing log file for cost calculation: logs/tmp/money-limited/trigger_output_aws_money-limited-input5250000-uniqueid-2025-02-23_16-08-55-42849.log
-Batch 1 cost: 0.0004584837 | Total cost: 0.0004584837 | Budget: 0.005
-Running Artillery for provider: aws
-Artillery Config: limitations/money-limited/temp_artillery_config_money-limited_aws_2025-02-23_16-08-55-42849.yaml
-Artillery run for aws completed. Output appended to logs/tmp/money-limited/trigger_output_aws_money-limited-input5250000-uniqueid-2025-02-23_16-08-55-42849.tmp
-Temporary Artillery config 'limitations/money-limited/temp_artillery_config_money-limited_aws_2025-02-23_16-08-55-42849.yaml' deleted.
-Processing: logs/tmp/money-limited/trigger_output_aws_money-limited-input5250000-uniqueid-2025-02-23_16-08-55-42849.tmp
-Processed log saved to logs/tmp/money-limited/trigger_output_aws_money-limited-input5250000-uniqueid-2025-02-23_16-08-55-42849.log
-Finished processing logs/tmp/money-limited/trigger_output_aws_money-limited-input5250000-uniqueid-2025-02-23_16-08-55-42849.tmp.
-Processing log file for cost calculation: logs/tmp/money-limited/trigger_output_aws_money-limited-input5250000-uniqueid-2025-02-23_16-08-55-42849.log
-Batch 2 cost: 0.0009173824 | Total cost: 0.0013758661 | Budget: 0.005
-Running Artillery for provider: aws
-Artillery Config: limitations/money-limited/temp_artillery_config_money-limited_aws_2025-02-23_16-08-55-42849.yaml
-Artillery run for aws completed. Output appended to logs/tmp/money-limited/trigger_output_aws_money-limited-input5250000-uniqueid-2025-02-23_16-08-55-42849.tmp
-Temporary Artillery config 'limitations/money-limited/temp_artillery_config_money-limited_aws_2025-02-23_16-08-55-42849.yaml' deleted.
-Processing: logs/tmp/money-limited/trigger_output_aws_money-limited-input5250000-uniqueid-2025-02-23_16-08-55-42849.tmp
-Processed log saved to logs/tmp/money-limited/trigger_output_aws_money-limited-input5250000-uniqueid-2025-02-23_16-08-55-42849.log
-Finished processing logs/tmp/money-limited/trigger_output_aws_money-limited-input5250000-uniqueid-2025-02-23_16-08-55-42849.tmp.
-Processing log file for cost calculation: logs/tmp/money-limited/trigger_output_aws_money-limited-input5250000-uniqueid-2025-02-23_16-08-55-42849.log
-Batch 3 cost: 0.0013767874 | Total cost: 0.0027526535 | Budget: 0.005
-Budget exceeded. Stopping execution.
-Total cost of execution: .0053592353
+Artillery Config: limitations/call-limited/temp_artillery_config_call-limited_aws_5250000_2025-03-05_22-24-40-62089.yaml
+Artillery run for aws completed. Output appended to logs/tmp/call-limited/trigger_output_aws_call-limited-input5250000-uniqueid-2025-03-05_22-24-40-62089.tmp
+Temporary Artillery config 'limitations/call-limited/temp_artillery_config_call-limited_aws_5250000_2025-03-05_22-24-40-62089.yaml' deleted.
 ====================================================================
- Money-Limited Trigger: All Artillery runs completed for 'money-limited'.
+ Call-Limited Trigger: All Artillery runs completed for 'call-limited' and provider 'aws'.
 ====================================================================
 Trigger script completed successfully.
 Executing log_retrieval-aws.py
-No .tmp log files found in logs/tmp/money-limited.
+Processing: logs/tmp/call-limited/trigger_output_aws_call-limited-input5000000-uniqueid-2025-03-05_22-24-40-62089.tmp
+Processed log saved to logs/tmp/call-limited/trigger_output_aws_call-limited-input5000000-uniqueid-2025-03-05_22-24-40-62089.log
+Finished processing logs/tmp/call-limited/trigger_output_aws_call-limited-input5000000-uniqueid-2025-03-05_22-24-40-62089.tmp.
+Processing: logs/tmp/call-limited/trigger_output_aws_call-limited-input5250000-uniqueid-2025-03-05_22-24-40-62089.tmp
+Processed log saved to logs/tmp/call-limited/trigger_output_aws_call-limited-input5250000-uniqueid-2025-03-05_22-24-40-62089.log
+Finished processing logs/tmp/call-limited/trigger_output_aws_call-limited-input5250000-uniqueid-2025-03-05_22-24-40-62089.tmp.
 Log retrieval completed successfully.
 Executing confidence interval analysis...
-Number of Runs: 298
-Direct 95% Percentile CI Width: 16.57%
-Direct 95% Percentile CI: (-2.1937842778793417, 14.37246963562753)
-Bootstrap 95% Percentile CI Width: 1.21%
-Bootstrap 95% Percentile CI: (np.float64(5.162523900573614), np.float64(6.374501992031872))
-Statistics saved to statistics/money-limited/statistics_trigger_output_aws_money-limited-input5000000-uniqueid-2025-02-23_16-08-55-42849.log_trigger_output_aws_money-limited-input5250000-uniqueid-2025-02-23_16-08-55-42849.log.csv
-Moved logs/tmp/money-limited/trigger_output_aws_money-limited-input5000000-uniqueid-2025-02-23_16-08-55-42849.log to logs/processed/money-limited/trigger_output_aws_money-limited-input5000000-uniqueid-2025-02-23_16-08-55-42849.log
-Moved logs/tmp/money-limited/trigger_output_aws_money-limited-input5250000-uniqueid-2025-02-23_16-08-55-42849.log to logs/processed/money-limited/trigger_output_aws_money-limited-input5250000-uniqueid-2025-02-23_16-08-55-42849.log
+Number of Runs: 25
+Direct 95% Percentile CI Width: 13.10%
+Direct 95% Percentile CI: (-4.29553264604811, 8.801498127340825)
+Bootstrap 95% Percentile CI Width: 2.22%
+Bootstrap 95% Percentile CI: (np.float64(2.798507462686567), np.float64(5.018587360594796))
+Statistics saved to statistics/call-limited/statistics_trigger_output_aws_call-limited-input5000000-uniqueid-2025-03-05_22-24-40-62089.log_trigger_output_aws_call-limited-input5250000-uniqueid-2025-03-05_22-24-40-62089.log.csv
+Moved logs/tmp/call-limited/trigger_output_aws_call-limited-input5250000-uniqueid-2025-03-05_22-24-40-62089.log to logs/processed/call-limited/trigger_output_aws_call-limited-input5250000-uniqueid-2025-03-05_22-24-40-62089.log
+Moved logs/tmp/call-limited/trigger_output_aws_call-limited-input5000000-uniqueid-2025-03-05_22-24-40-62089.log to logs/processed/call-limited/trigger_output_aws_call-limited-input5000000-uniqueid-2025-03-05_22-24-40-62089.log
 Statistics computation completed successfully.
 ====================================================================
- Orchestrator: Benchmark process for 'money-limited' completed and provider 'aws'.
+ Orchestrator: Benchmark process for 'call-limited' completed and provider 'aws'.
 ====================================================================
 ====================================================================
- Orchestrator: Starting benchmark with configuration 'money-limited' and provider 'gcp'
+ Orchestrator: Starting benchmark with configuration 'call-limited' and provider 'gcp'
 ====================================================================
-Configuration file found: configurations/money-limited.yaml
-Limitation mode identified: money-limited
-Executing trigger script: limitations/money-limited/trigger_function.sh
+Configuration file found: configurations/call-limited.yaml
+Limitation mode identified: call-limited
+Executing trigger script: limitations/call-limited/trigger_function.sh
 ====================================================================
- Money-Limited Trigger: Starting benchmark with config 'money-limited' and provider 'gcp'
+ Call-Limited Trigger: Starting benchmark with config 'call-limited' and provider 'gcp'
 ====================================================================
 Running Artillery for provider: gcp
-Artillery Config: limitations/money-limited/temp_artillery_config_money-limited_gcp_2025-02-23_16-14-02-50296.yaml
-Artillery run for gcp completed. Output appended to logs/tmp/money-limited/trigger_output_gcp_money-limited-input5000000-uniqueid-2025-02-23_16-14-02-50296.tmp
-Temporary Artillery config 'limitations/money-limited/temp_artillery_config_money-limited_gcp_2025-02-23_16-14-02-50296.yaml' deleted.
-/Users/michele/Documents/Wirtschaftsinformatik/Thesis/bachelor-thesis/Benchmark-Limitations/log_retrieval-gcp.py:19: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
-  dt = datetime.utcfromtimestamp(unix_time)
-Processing: logs/tmp/money-limited/trigger_output_gcp_money-limited-input5000000-uniqueid-2025-02-23_16-14-02-50296.tmp
-Processed log saved to logs/tmp/money-limited/trigger_output_gcp_money-limited-input5000000-uniqueid-2025-02-23_16-14-02-50296.log
-Finished processing logs/tmp/money-limited/trigger_output_gcp_money-limited-input5000000-uniqueid-2025-02-23_16-14-02-50296.tmp.
-Processing log file for cost calculation: logs/tmp/money-limited/trigger_output_gcp_money-limited-input5000000-uniqueid-2025-02-23_16-14-02-50296.log
-Batch 1 cost: 0.0003259608 | Total cost: 0.0003259608 | Budget: 0.005
+Artillery Config: limitations/call-limited/temp_artillery_config_call-limited_gcp_5000000_2025-03-05_22-25-31-62186.yaml
+Artillery run for gcp completed. Output appended to logs/tmp/call-limited/trigger_output_gcp_call-limited-input5000000-uniqueid-2025-03-05_22-25-31-62186.tmp
+Temporary Artillery config 'limitations/call-limited/temp_artillery_config_call-limited_gcp_5000000_2025-03-05_22-25-31-62186.yaml' deleted.
 Running Artillery for provider: gcp
-Artillery Config: limitations/money-limited/temp_artillery_config_money-limited_gcp_2025-02-23_16-14-02-50296.yaml
-Artillery run for gcp completed. Output appended to logs/tmp/money-limited/trigger_output_gcp_money-limited-input5000000-uniqueid-2025-02-23_16-14-02-50296.tmp
-Temporary Artillery config 'limitations/money-limited/temp_artillery_config_money-limited_gcp_2025-02-23_16-14-02-50296.yaml' deleted.
-/Users/michele/Documents/Wirtschaftsinformatik/Thesis/bachelor-thesis/Benchmark-Limitations/log_retrieval-gcp.py:19: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
-  dt = datetime.utcfromtimestamp(unix_time)
-Processing: logs/tmp/money-limited/trigger_output_gcp_money-limited-input5000000-uniqueid-2025-02-23_16-14-02-50296.tmp
-Processed log saved to logs/tmp/money-limited/trigger_output_gcp_money-limited-input5000000-uniqueid-2025-02-23_16-14-02-50296.log
-Finished processing logs/tmp/money-limited/trigger_output_gcp_money-limited-input5000000-uniqueid-2025-02-23_16-14-02-50296.tmp.
-Processing log file for cost calculation: logs/tmp/money-limited/trigger_output_gcp_money-limited-input5000000-uniqueid-2025-02-23_16-14-02-50296.log
-Batch 2 cost: 0.0006632343 | Total cost: 0.0009891951 | Budget: 0.005
-Running Artillery for provider: gcp
-Artillery Config: limitations/money-limited/temp_artillery_config_money-limited_gcp_2025-02-23_16-14-02-50296.yaml
-Artillery run for gcp completed. Output appended to logs/tmp/money-limited/trigger_output_gcp_money-limited-input5000000-uniqueid-2025-02-23_16-14-02-50296.tmp
-Temporary Artillery config 'limitations/money-limited/temp_artillery_config_money-limited_gcp_2025-02-23_16-14-02-50296.yaml' deleted.
-/Users/michele/Documents/Wirtschaftsinformatik/Thesis/bachelor-thesis/Benchmark-Limitations/log_retrieval-gcp.py:19: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
-  dt = datetime.utcfromtimestamp(unix_time)
-Processing: logs/tmp/money-limited/trigger_output_gcp_money-limited-input5000000-uniqueid-2025-02-23_16-14-02-50296.tmp
-Processed log saved to logs/tmp/money-limited/trigger_output_gcp_money-limited-input5000000-uniqueid-2025-02-23_16-14-02-50296.log
-Finished processing logs/tmp/money-limited/trigger_output_gcp_money-limited-input5000000-uniqueid-2025-02-23_16-14-02-50296.tmp.
-Processing log file for cost calculation: logs/tmp/money-limited/trigger_output_gcp_money-limited-input5000000-uniqueid-2025-02-23_16-14-02-50296.log
-Batch 3 cost: 0.0009917480 | Total cost: 0.0019809431 | Budget: 0.005
-Running Artillery for provider: gcp
-Artillery Config: limitations/money-limited/temp_artillery_config_money-limited_gcp_2025-02-23_16-14-02-50296.yaml
-Artillery run for gcp completed. Output appended to logs/tmp/money-limited/trigger_output_gcp_money-limited-input5000000-uniqueid-2025-02-23_16-14-02-50296.tmp
-Temporary Artillery config 'limitations/money-limited/temp_artillery_config_money-limited_gcp_2025-02-23_16-14-02-50296.yaml' deleted.
-/Users/michele/Documents/Wirtschaftsinformatik/Thesis/bachelor-thesis/Benchmark-Limitations/log_retrieval-gcp.py:19: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
-  dt = datetime.utcfromtimestamp(unix_time)
-Processing: logs/tmp/money-limited/trigger_output_gcp_money-limited-input5000000-uniqueid-2025-02-23_16-14-02-50296.tmp
-Processed log saved to logs/tmp/money-limited/trigger_output_gcp_money-limited-input5000000-uniqueid-2025-02-23_16-14-02-50296.log
-Finished processing logs/tmp/money-limited/trigger_output_gcp_money-limited-input5000000-uniqueid-2025-02-23_16-14-02-50296.tmp.
-Processing log file for cost calculation: logs/tmp/money-limited/trigger_output_gcp_money-limited-input5000000-uniqueid-2025-02-23_16-14-02-50296.log
-Batch 4 cost: 0.0013193923 | Total cost: 0.0033003354 | Budget: 0.005
-Budget exceeded. Stopping execution.
-Running Artillery for provider: gcp
-Artillery Config: limitations/money-limited/temp_artillery_config_money-limited_gcp_2025-02-23_16-14-02-50296.yaml
-Artillery run for gcp completed. Output appended to logs/tmp/money-limited/trigger_output_gcp_money-limited-input5250000-uniqueid-2025-02-23_16-14-02-50296.tmp
-Temporary Artillery config 'limitations/money-limited/temp_artillery_config_money-limited_gcp_2025-02-23_16-14-02-50296.yaml' deleted.
-/Users/michele/Documents/Wirtschaftsinformatik/Thesis/bachelor-thesis/Benchmark-Limitations/log_retrieval-gcp.py:19: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
-  dt = datetime.utcfromtimestamp(unix_time)
-Processing: logs/tmp/money-limited/trigger_output_gcp_money-limited-input5250000-uniqueid-2025-02-23_16-14-02-50296.tmp
-Processed log saved to logs/tmp/money-limited/trigger_output_gcp_money-limited-input5250000-uniqueid-2025-02-23_16-14-02-50296.log
-Finished processing logs/tmp/money-limited/trigger_output_gcp_money-limited-input5250000-uniqueid-2025-02-23_16-14-02-50296.tmp.
-Processing log file for cost calculation: logs/tmp/money-limited/trigger_output_gcp_money-limited-input5250000-uniqueid-2025-02-23_16-14-02-50296.log
-Batch 1 cost: 0.0003477815 | Total cost: 0.0003477815 | Budget: 0.005
-Running Artillery for provider: gcp
-Artillery Config: limitations/money-limited/temp_artillery_config_money-limited_gcp_2025-02-23_16-14-02-50296.yaml
-Artillery run for gcp completed. Output appended to logs/tmp/money-limited/trigger_output_gcp_money-limited-input5250000-uniqueid-2025-02-23_16-14-02-50296.tmp
-Temporary Artillery config 'limitations/money-limited/temp_artillery_config_money-limited_gcp_2025-02-23_16-14-02-50296.yaml' deleted.
-/Users/michele/Documents/Wirtschaftsinformatik/Thesis/bachelor-thesis/Benchmark-Limitations/log_retrieval-gcp.py:19: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
-  dt = datetime.utcfromtimestamp(unix_time)
-Processing: logs/tmp/money-limited/trigger_output_gcp_money-limited-input5250000-uniqueid-2025-02-23_16-14-02-50296.tmp
-Processed log saved to logs/tmp/money-limited/trigger_output_gcp_money-limited-input5250000-uniqueid-2025-02-23_16-14-02-50296.log
-Finished processing logs/tmp/money-limited/trigger_output_gcp_money-limited-input5250000-uniqueid-2025-02-23_16-14-02-50296.tmp.
-Processing log file for cost calculation: logs/tmp/money-limited/trigger_output_gcp_money-limited-input5250000-uniqueid-2025-02-23_16-14-02-50296.log
-Batch 2 cost: 0.0006999753 | Total cost: 0.0010477568 | Budget: 0.005
-Running Artillery for provider: gcp
-Artillery Config: limitations/money-limited/temp_artillery_config_money-limited_gcp_2025-02-23_16-14-02-50296.yaml
-Artillery run for gcp completed. Output appended to logs/tmp/money-limited/trigger_output_gcp_money-limited-input5250000-uniqueid-2025-02-23_16-14-02-50296.tmp
-Temporary Artillery config 'limitations/money-limited/temp_artillery_config_money-limited_gcp_2025-02-23_16-14-02-50296.yaml' deleted.
-/Users/michele/Documents/Wirtschaftsinformatik/Thesis/bachelor-thesis/Benchmark-Limitations/log_retrieval-gcp.py:19: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
-  dt = datetime.utcfromtimestamp(unix_time)
-Processing: logs/tmp/money-limited/trigger_output_gcp_money-limited-input5250000-uniqueid-2025-02-23_16-14-02-50296.tmp
-Processed log saved to logs/tmp/money-limited/trigger_output_gcp_money-limited-input5250000-uniqueid-2025-02-23_16-14-02-50296.log
-Finished processing logs/tmp/money-limited/trigger_output_gcp_money-limited-input5250000-uniqueid-2025-02-23_16-14-02-50296.tmp.
-Processing log file for cost calculation: logs/tmp/money-limited/trigger_output_gcp_money-limited-input5250000-uniqueid-2025-02-23_16-14-02-50296.log
-Batch 3 cost: 0.0010495512 | Total cost: 0.0020973080 | Budget: 0.005
-Running Artillery for provider: gcp
-Artillery Config: limitations/money-limited/temp_artillery_config_money-limited_gcp_2025-02-23_16-14-02-50296.yaml
-Artillery run for gcp completed. Output appended to logs/tmp/money-limited/trigger_output_gcp_money-limited-input5250000-uniqueid-2025-02-23_16-14-02-50296.tmp
-Temporary Artillery config 'limitations/money-limited/temp_artillery_config_money-limited_gcp_2025-02-23_16-14-02-50296.yaml' deleted.
-/Users/michele/Documents/Wirtschaftsinformatik/Thesis/bachelor-thesis/Benchmark-Limitations/log_retrieval-gcp.py:19: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
-  dt = datetime.utcfromtimestamp(unix_time)
-Processing: logs/tmp/money-limited/trigger_output_gcp_money-limited-input5250000-uniqueid-2025-02-23_16-14-02-50296.tmp
-Processed log saved to logs/tmp/money-limited/trigger_output_gcp_money-limited-input5250000-uniqueid-2025-02-23_16-14-02-50296.log
-Finished processing logs/tmp/money-limited/trigger_output_gcp_money-limited-input5250000-uniqueid-2025-02-23_16-14-02-50296.tmp.
-Processing log file for cost calculation: logs/tmp/money-limited/trigger_output_gcp_money-limited-input5250000-uniqueid-2025-02-23_16-14-02-50296.log
-Batch 4 cost: 0.0014029660 | Total cost: 0.0035002740 | Budget: 0.005
-Budget exceeded. Stopping execution.
-Total cost of execution: .0068006094
+Artillery Config: limitations/call-limited/temp_artillery_config_call-limited_gcp_5250000_2025-03-05_22-25-31-62186.yaml
+Artillery run for gcp completed. Output appended to logs/tmp/call-limited/trigger_output_gcp_call-limited-input5250000-uniqueid-2025-03-05_22-25-31-62186.tmp
+Temporary Artillery config 'limitations/call-limited/temp_artillery_config_call-limited_gcp_5250000_2025-03-05_22-25-31-62186.yaml' deleted.
 ====================================================================
- Money-Limited Trigger: All Artillery runs completed for 'money-limited'.
+ Call-Limited Trigger: All Artillery runs completed for 'call-limited' and provider 'gcp'.
 ====================================================================
 Trigger script completed successfully.
 Executing log_retrieval-gcp.py
-No .tmp log files found in logs/tmp/money-limited.
+/Users/michele/Documents/Wirtschaftsinformatik/Thesis/FaaS-TradeOff/Benchmark-Limitations/./log_retrieval-gcp.py:19: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
+  dt = datetime.utcfromtimestamp(unix_time)
+/Users/michele/Documents/Wirtschaftsinformatik/Thesis/FaaS-TradeOff/Benchmark-Limitations/./log_retrieval-gcp.py:19: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
+  dt = datetime.utcfromtimestamp(unix_time)
+Processing: logs/tmp/call-limited/trigger_output_gcp_call-limited-input5000000-uniqueid-2025-03-05_22-25-31-62186.tmp
+Processed log saved to logs/tmp/call-limited/trigger_output_gcp_call-limited-input5000000-uniqueid-2025-03-05_22-25-31-62186.log
+Finished processing logs/tmp/call-limited/trigger_output_gcp_call-limited-input5000000-uniqueid-2025-03-05_22-25-31-62186.tmp.
+Processing: logs/tmp/call-limited/trigger_output_gcp_call-limited-input5250000-uniqueid-2025-03-05_22-25-31-62186.tmp
+Processed log saved to logs/tmp/call-limited/trigger_output_gcp_call-limited-input5250000-uniqueid-2025-03-05_22-25-31-62186.log
+Finished processing logs/tmp/call-limited/trigger_output_gcp_call-limited-input5250000-uniqueid-2025-03-05_22-25-31-62186.tmp.
 Log retrieval completed successfully.
 Executing confidence interval analysis...
-Number of Runs: 397
-Direct 95% Percentile CI Width: 58.33%
-Direct 95% Percentile CI: (-17.755102040816325, 40.57971014492754)
-Bootstrap 95% Percentile CI Width: 4.66%
-Bootstrap 95% Percentile CI: (np.float64(4.702970297029703), np.float64(9.366391184573002))
-Statistics saved to statistics/money-limited/statistics_trigger_output_gcp_money-limited-input5000000-uniqueid-2025-02-23_16-14-02-50296.log_trigger_output_gcp_money-limited-input5250000-uniqueid-2025-02-23_16-14-02-50296.log.csv
-Moved logs/tmp/money-limited/trigger_output_gcp_money-limited-input5000000-uniqueid-2025-02-23_16-14-02-50296.log to logs/processed/money-limited/trigger_output_gcp_money-limited-input5000000-uniqueid-2025-02-23_16-14-02-50296.log
-Moved logs/tmp/money-limited/trigger_output_gcp_money-limited-input5250000-uniqueid-2025-02-23_16-14-02-50296.log to logs/processed/money-limited/trigger_output_gcp_money-limited-input5250000-uniqueid-2025-02-23_16-14-02-50296.log
+Number of Runs: 17
+Direct 95% Percentile CI Width: 47.43%
+Direct 95% Percentile CI: (-26.019417475728158, 21.407624633431084)
+Bootstrap 95% Percentile CI Width: 15.62%
+Bootstrap 95% Percentile CI: (np.float64(-0.5797101449275363), np.float64(15.04424778761062))
+Statistics saved to statistics/call-limited/statistics_trigger_output_gcp_call-limited-input5000000-uniqueid-2025-03-05_22-25-31-62186.log_trigger_output_gcp_call-limited-input5250000-uniqueid-2025-03-05_22-25-31-62186.log.csv
+Moved logs/tmp/call-limited/trigger_output_gcp_call-limited-input5250000-uniqueid-2025-03-05_22-25-31-62186.log to logs/processed/call-limited/trigger_output_gcp_call-limited-input5250000-uniqueid-2025-03-05_22-25-31-62186.log
+Moved logs/tmp/call-limited/trigger_output_gcp_call-limited-input5000000-uniqueid-2025-03-05_22-25-31-62186.log to logs/processed/call-limited/trigger_output_gcp_call-limited-input5000000-uniqueid-2025-03-05_22-25-31-62186.log
 Statistics computation completed successfully.
 ====================================================================
- Orchestrator: Benchmark process for 'money-limited' completed and provider 'gcp'.
+ Orchestrator: Benchmark process for 'call-limited' completed and provider 'gcp'.
 ====================================================================

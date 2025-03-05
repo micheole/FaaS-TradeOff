@@ -12,33 +12,18 @@ arrival_count: 150
 # The desired CI width threshold in percentage points for the 95% CI
 desired_ci_width: 5
 
+# Upper limit on how many times we run
+max_batches: 20
+
 # Artillery scenarios for each cloud provider (AWS and GCP)
 artillery_scenarios:
   aws:
     path: "limitations/accuracy-limited/monte_carlo_artillery.yaml"
-    target: "https://mg29etspsa.execute-api.eu-central-1.amazonaws.com/dev/lambda"
-    region: "eu-central-1"
-    loggroup: "/aws/lambda/json_terraform_lambda_monte_carlo_testing"
+    target: ""
+    region: ""
+    loggroup: ""
   gcp:
     path: "limitations/accuracy-limited/monte_carlo_artillery.yaml"
-    target: "https://europe-west3-monte-carlo-estimation-testing.cloudfunctions.net/json_terraform_gcp_function_monte_carlo"
-    region: "europe-west3"
-    projectid: "monte-carlo-estimation-testing"
-
-  # aws:
-  #   path: "limitations/accuracy-limited/sieve_artillery.yaml"
-  #   target: "https://d83p5qu33e.execute-api.eu-central-1.amazonaws.com/dev/lambda"
-  #   region: "eu-central-1"
-  #   loggroup: "/aws/lambda/json_terraform_lambda_eratosthenes"
-  # gcp:
-  #   path: "limitations/accuracy-limited/sieve_artillery.yaml"
-  #   target: "https://europe-west3-sieve-of-eratosthenes.cloudfunctions.net/json_terraform_gcp_function_eratosthenes"
-  #   region: "europe-west3"
-  #   projectid: "sieve-of-eratosthenes"
-
-
-
-
-
-# Upper limit on how many times we run
-max_batches: 20
+    target: ""
+    region: ""
+    projectid: ""

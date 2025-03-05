@@ -56,20 +56,6 @@ if [ ! -f "$SCENARIO_PATH" ]; then
   exit 1
 fi
 
-COLD_INPUT=1000000
-COLD_DURATION=10
-COLD_ARRIVAL_RATE=8
-
-WARMING_UP_ARTILLERY_CONFIG="limitations/call-limited/temp_artillery_config_warming_up.yaml"
-
-sed -e "s/__INPUT__/$COLD_INPUT/" \
-    -e "s/__DURATION__/$COLD_DURATION/" \
-    -e "s/__ARRIVALRATE__/$COLD_ARRIVAL_RATE/" "$SCENARIO_PATH" > "$WARMING_UP_ARTILLERY_CONFIG"
-
-artillery run "$WARMING_UP_ARTILLERY_CONFIG" -t "$TARGET_URL"
-
-rm -f "$WARMING_UP_ARTILLERY_CONFIG"
-
 # Loop through both input parameters and execute Artillery for each
 for INPUT_PARAM in "$INPUT_PARAM1" "$INPUT_PARAM2"; do
 

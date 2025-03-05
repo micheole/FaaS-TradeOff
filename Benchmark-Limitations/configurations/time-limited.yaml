@@ -13,22 +13,11 @@ arrival_rate: 5
 artillery_scenarios: 
   aws:
     path: "limitations/time-limited/monte_carlo_artillery.yaml"
-    target: "https://mg29etspsa.execute-api.eu-central-1.amazonaws.com/dev/lambda"
+    target: "https://kvqr743a39.execute-api.eu-central-1.amazonaws.com/dev/lambda"
     region: "eu-central-1"
-    loggroup: "/aws/lambda/json_terraform_lambda_monte_carlo_testing"
+    loggroup: "/aws/lambda/monte_carlo_simulation_lambda"
   gcp:
     path: "limitations/time-limited/monte_carlo_artillery.yaml"
-    target: "https://europe-west3-monte-carlo-estimation-testing.cloudfunctions.net/json_terraform_gcp_function_monte_carlo"
-    region: "europe-west3"
-    projectid: "monte-carlo-estimation-testing"
-
-  # aws:
-  #   path: "limitations/time-limited/sieve_artillery.yaml"
-  #   target: "https://d83p5qu33e.execute-api.eu-central-1.amazonaws.com/dev/lambda"
-  #   region: "eu-central-1"
-  #   loggroup: "/aws/lambda/json_terraform_lambda_eratosthenes"
-  # gcp:
-  #   path: "limitations/time-limited/sieve_artillery.yaml"
-  #   target: "https://europe-west3-sieve-of-eratosthenes.cloudfunctions.net/json_terraform_gcp_function_eratosthenes"
-  #   region: "europe-west3"
-  #   projectid: "sieve-of-eratosthenes"
+    target: ""
+    region: ""
+    projectid: ""
