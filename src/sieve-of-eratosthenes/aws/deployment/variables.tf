@@ -49,3 +49,9 @@ variable "api_stage_name" {
   type        = string
   default     = "dev"
 }
+
+variable "memory_size" {
+  description = "Memory Size for Function"
+  type = number
+  default = 512
+}

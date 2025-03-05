@@ -1,7 +1,15 @@
 const functions = require('@google-cloud/functions-framework');
+var coldStart = true;
 
 functions.http('estimatePi', (req, res) => {
     const uniqueId = req.header('X-Cloud-Trace-Context')?.split('/')[0] || 'unknown-trace-id';
+
+    // Adding cold start detection
+    var markColdStart = false;
+    if (coldStart) {
+        coldStart = false;
+        markColdStart = true;
+    }
 
     // Handle trials from both query parameters and request body
     const queryTrials = req.query.trials ? parseInt(req.query.trials, 10) : null;
@@ -29,11 +37,14 @@ functions.http('estimatePi', (req, res) => {
 
     // Estimate Pi
     const pi = (4 * circle_points) / square_points;
+    
+    // console.log(`Unique ID: ${uniqueId}`);
 
     // Send the response as JSON
     res.status(200).set('Content-Type', 'application/json').json({
         uniqueId: uniqueId,
         estimatedPi: pi,
-        trials: trials
+        trials: trials,
+        markColdStart: markColdStart
   });
 });

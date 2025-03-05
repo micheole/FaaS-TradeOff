@@ -1,0 +1,750 @@
+Unique ID: 61a3dbf1-c408-488f-aac4-969c0b18e382,
+Billed Duration for Request 61a3dbf1-c408-488f-aac4-969c0b18e382: 522 ms
+Pi: 3.1415008,
+Input: 5000000,
+Cold Start: false
+Unique ID: e79f83cf-b1e5-4d4c-96a5-4ea45cbd3c4b,
+Billed Duration for Request e79f83cf-b1e5-4d4c-96a5-4ea45cbd3c4b: 578 ms
+Pi: 3.1416704,
+Input: 5000000,
+Cold Start: false
+Unique ID: 76172c55-3bc0-4d10-a5dc-0b0cb8d664b6,
+Billed Duration for Request 76172c55-3bc0-4d10-a5dc-0b0cb8d664b6: 503 ms
+Pi: 3.1419136,
+Input: 5000000,
+Cold Start: false
+Unique ID: 1bab7e7d-2766-4452-a078-e7bbcb88a536,
+Billed Duration for Request 1bab7e7d-2766-4452-a078-e7bbcb88a536: 564 ms
+Pi: 3.1416288,
+Input: 5000000,
+Cold Start: false
+Unique ID: 3980fd05-d30f-46ca-8aaf-b1d58008fe31,
+Billed Duration for Request 3980fd05-d30f-46ca-8aaf-b1d58008fe31: 638 ms
+Pi: 3.1422536,
+Input: 5000000,
+Cold Start: true
+Unique ID: 12fd0a90-f51f-4c7d-b8ce-328d59039614,
+Billed Duration for Request 12fd0a90-f51f-4c7d-b8ce-328d59039614: 503 ms
+Pi: 3.1415984,
+Input: 5000000,
+Cold Start: false
+Unique ID: df24a9cf-846d-4f9d-8879-23475807aac3,
+Billed Duration for Request df24a9cf-846d-4f9d-8879-23475807aac3: 592 ms
+Pi: 3.1419752,
+Input: 5000000,
+Cold Start: true
+Unique ID: 7c5c48e0-e257-49a4-86ad-689ec541710a,
+Billed Duration for Request 7c5c48e0-e257-49a4-86ad-689ec541710a: 597 ms
+Pi: 3.141228,
+Input: 5000000,
+Cold Start: false
+Unique ID: 17182e89-003f-45c8-a844-17a71faf5d14,
+Billed Duration for Request 17182e89-003f-45c8-a844-17a71faf5d14: 541 ms
+Pi: 3.1413584,
+Input: 5000000,
+Cold Start: false
+Unique ID: 6f488c6c-61d9-4c23-87be-6a3de12bf737,
+Billed Duration for Request 6f488c6c-61d9-4c23-87be-6a3de12bf737: 529 ms
+Pi: 3.1413848,
+Input: 5000000,
+Cold Start: false
+Unique ID: 2e26cf44-b297-4198-ba47-de85528e4659,
+Billed Duration for Request 2e26cf44-b297-4198-ba47-de85528e4659: 552 ms
+Pi: 3.14194,
+Input: 5000000,
+Cold Start: false
+Unique ID: a9bf44f3-3b4c-45ab-bff0-562329206153,
+Billed Duration for Request a9bf44f3-3b4c-45ab-bff0-562329206153: 529 ms
+Pi: 3.1404592,
+Input: 5000000,
+Cold Start: false
+Unique ID: ebae35ce-d9ad-4d7f-9257-caf12aaaeee1,
+Billed Duration for Request ebae35ce-d9ad-4d7f-9257-caf12aaaeee1: 507 ms
+Pi: 3.1418672,
+Input: 5000000,
+Cold Start: false
+Unique ID: 866833bf-8e6f-4938-b6fb-75843185f485,
+Billed Duration for Request 866833bf-8e6f-4938-b6fb-75843185f485: 541 ms
+Pi: 3.141488,
+Input: 5000000,
+Cold Start: false
+Unique ID: 0f2db750-87f2-4071-8fe0-6fa7f7890997,
+Billed Duration for Request 0f2db750-87f2-4071-8fe0-6fa7f7890997: 542 ms
+Pi: 3.1413528,
+Input: 5000000,
+Cold Start: false
+Unique ID: 6a6ee2a0-cb93-41e4-9e4c-b85c06f89b26,
+Billed Duration for Request 6a6ee2a0-cb93-41e4-9e4c-b85c06f89b26: 506 ms
+Pi: 3.1421496,
+Input: 5000000,
+Cold Start: false
+Unique ID: 98d0cba2-e8b7-4417-9897-647959ac15fc,
+Billed Duration for Request 98d0cba2-e8b7-4417-9897-647959ac15fc: 542 ms
+Pi: 3.1415304,
+Input: 5000000,
+Cold Start: false
+Unique ID: 7379051a-f15e-4ba4-ad9e-86a558f523f9,
+Billed Duration for Request 7379051a-f15e-4ba4-ad9e-86a558f523f9: 546 ms
+Pi: 3.1418136,
+Input: 5000000,
+Cold Start: false
+Unique ID: ae31d6c6-07fb-4f8f-9b41-4c3dd3499988,
+Billed Duration for Request ae31d6c6-07fb-4f8f-9b41-4c3dd3499988: 502 ms
+Pi: 3.1407208,
+Input: 5000000,
+Cold Start: false
+Unique ID: f5784545-19da-4a6c-8b9e-68b1e495de9c,
+Billed Duration for Request f5784545-19da-4a6c-8b9e-68b1e495de9c: 527 ms
+Pi: 3.1410328,
+Input: 5000000,
+Cold Start: false
+Unique ID: 69977a54-11a3-43ab-9bca-bb13c0939dcb,
+Billed Duration for Request 69977a54-11a3-43ab-9bca-bb13c0939dcb: 549 ms
+Pi: 3.142516,
+Input: 5000000,
+Cold Start: false
+Unique ID: 07461660-116f-4aaf-8936-13f7f61a4f10,
+Billed Duration for Request 07461660-116f-4aaf-8936-13f7f61a4f10: 506 ms
+Pi: 3.1428904,
+Input: 5000000,
+Cold Start: false
+Unique ID: 205bb1cb-fa73-4076-94ac-27754fbef81c,
+Billed Duration for Request 205bb1cb-fa73-4076-94ac-27754fbef81c: 542 ms
+Pi: 3.1418824,
+Input: 5000000,
+Cold Start: false
+Unique ID: 52509439-cc90-47d4-959f-08031ba26730,
+Billed Duration for Request 52509439-cc90-47d4-959f-08031ba26730: 549 ms
+Pi: 3.1406048,
+Input: 5000000,
+Cold Start: false
+Unique ID: 11833c57-ab7f-4aea-8fa4-d462cc425e46,
+Billed Duration for Request 11833c57-ab7f-4aea-8fa4-d462cc425e46: 502 ms
+Pi: 3.1413912,
+Input: 5000000,
+Cold Start: false
+Unique ID: 8e20cf53-4c8f-4499-afdc-d433ef648e7d,
+Billed Duration for Request 8e20cf53-4c8f-4499-afdc-d433ef648e7d: 527 ms
+Pi: 3.141476,
+Input: 5000000,
+Cold Start: false
+Unique ID: 54d1a28c-ed4a-4d52-b8a8-15db86eb2fcc,
+Billed Duration for Request 54d1a28c-ed4a-4d52-b8a8-15db86eb2fcc: 547 ms
+Pi: 3.1427688,
+Input: 5000000,
+Cold Start: false
+Unique ID: 3c0aeef4-90bb-4492-9a29-2e0e8e9a0971,
+Billed Duration for Request 3c0aeef4-90bb-4492-9a29-2e0e8e9a0971: 491 ms
+Pi: 3.1401904,
+Input: 5000000,
+Cold Start: false
+Unique ID: 617d9d02-7343-41ce-8ddc-60943a276a6f,
+Billed Duration for Request 617d9d02-7343-41ce-8ddc-60943a276a6f: 530 ms
+Pi: 3.1418624,
+Input: 5000000,
+Cold Start: false
+Unique ID: acd2e3fd-d4b7-4398-9f17-01acb0f6b98c,
+Billed Duration for Request acd2e3fd-d4b7-4398-9f17-01acb0f6b98c: 544 ms
+Pi: 3.1411032,
+Input: 5000000,
+Cold Start: false
+Unique ID: bd5d31d4-446b-4247-8184-71c4b66f3ac8,
+Billed Duration for Request bd5d31d4-446b-4247-8184-71c4b66f3ac8: 502 ms
+Pi: 3.1410808,
+Input: 5000000,
+Cold Start: false
+Unique ID: 83600c99-1f04-4125-8f5d-638adca15e5f,
+Billed Duration for Request 83600c99-1f04-4125-8f5d-638adca15e5f: 530 ms
+Pi: 3.1409576,
+Input: 5000000,
+Cold Start: false
+Unique ID: c42761e8-9a0e-46b2-8791-768dec7d8348,
+Billed Duration for Request c42761e8-9a0e-46b2-8791-768dec7d8348: 547 ms
+Pi: 3.1412056,
+Input: 5000000,
+Cold Start: false
+Unique ID: bdd4104b-e874-41c8-932a-c5695a97db69,
+Billed Duration for Request bdd4104b-e874-41c8-932a-c5695a97db69: 493 ms
+Pi: 3.1414384,
+Input: 5000000,
+Cold Start: false
+Unique ID: 45c0a158-f908-43f8-826b-621bc1a9399a,
+Billed Duration for Request 45c0a158-f908-43f8-826b-621bc1a9399a: 532 ms
+Pi: 3.1409952,
+Input: 5000000,
+Cold Start: false
+Unique ID: 14e2a033-608b-4e10-942b-88cf70c56521,
+Billed Duration for Request 14e2a033-608b-4e10-942b-88cf70c56521: 550 ms
+Pi: 3.141816,
+Input: 5000000,
+Cold Start: false
+Unique ID: 662ccfe3-c7e2-435d-88af-f46cac51b67d,
+Billed Duration for Request 662ccfe3-c7e2-435d-88af-f46cac51b67d: 506 ms
+Pi: 3.1409152,
+Input: 5000000,
+Cold Start: false
+Unique ID: 64d18cb2-84ce-4b03-9a5e-da14bc0a54db,
+Billed Duration for Request 64d18cb2-84ce-4b03-9a5e-da14bc0a54db: 532 ms
+Pi: 3.1415136,
+Input: 5000000,
+Cold Start: false
+Unique ID: cacfeb18-50a5-4b2e-a5fc-11f6b4d04f24,
+Billed Duration for Request cacfeb18-50a5-4b2e-a5fc-11f6b4d04f24: 548 ms
+Pi: 3.1411464,
+Input: 5000000,
+Cold Start: false
+Unique ID: 7e5d1a67-bd6c-49fa-af0f-24708c8548c1,
+Billed Duration for Request 7e5d1a67-bd6c-49fa-af0f-24708c8548c1: 498 ms
+Pi: 3.141488,
+Input: 5000000,
+Cold Start: false
+Unique ID: 74f07188-7060-4bee-8aeb-b521fb0f6719,
+Billed Duration for Request 74f07188-7060-4bee-8aeb-b521fb0f6719: 542 ms
+Pi: 3.1424864,
+Input: 5000000,
+Cold Start: false
+Unique ID: 8e76ed26-e369-4b71-a956-44632d57392e,
+Billed Duration for Request 8e76ed26-e369-4b71-a956-44632d57392e: 531 ms
+Pi: 3.1417808,
+Input: 5000000,
+Cold Start: false
+Unique ID: 26b52828-3506-42e2-83f6-dd344534b286,
+Billed Duration for Request 26b52828-3506-42e2-83f6-dd344534b286: 506 ms
+Pi: 3.1425736,
+Input: 5000000,
+Cold Start: false
+Unique ID: 99b145a9-a119-44ac-8a77-8a22f8496619,
+Billed Duration for Request 99b145a9-a119-44ac-8a77-8a22f8496619: 531 ms
+Pi: 3.1412512,
+Input: 5000000,
+Cold Start: false
+Unique ID: f11ee075-0a74-430a-81b3-688e4839bc3a,
+Billed Duration for Request f11ee075-0a74-430a-81b3-688e4839bc3a: 549 ms
+Pi: 3.1406864,
+Input: 5000000,
+Cold Start: false
+Unique ID: 7aeed149-e905-4a52-be89-ca01d86ce1f4,
+Billed Duration for Request 7aeed149-e905-4a52-be89-ca01d86ce1f4: 505 ms
+Pi: 3.1410776,
+Input: 5000000,
+Cold Start: false
+Unique ID: fddb0028-5d23-4a65-a42e-45067d0c1222,
+Billed Duration for Request fddb0028-5d23-4a65-a42e-45067d0c1222: 533 ms
+Pi: 3.1424384,
+Input: 5000000,
+Cold Start: false
+Unique ID: 28ac8e04-16cf-49b1-ae1f-d04534ba515b,
+Billed Duration for Request 28ac8e04-16cf-49b1-ae1f-d04534ba515b: 549 ms
+Pi: 3.1409752,
+Input: 5000000,
+Cold Start: false
+Unique ID: 19e17b2c-88bd-4228-9d57-53ffee7aeaaa,
+Billed Duration for Request 19e17b2c-88bd-4228-9d57-53ffee7aeaaa: 503 ms
+Pi: 3.1415968,
+Input: 5000000,
+Cold Start: false
+Unique ID: 70e42342-636c-44dc-b223-13f084ee5037,
+Billed Duration for Request 70e42342-636c-44dc-b223-13f084ee5037: 509 ms
+Pi: 3.1421776,
+Input: 5000000,
+Cold Start: false
+Unique ID: 4ef43da3-5d16-4098-ad80-56af9aefa43a,
+Billed Duration for Request 4ef43da3-5d16-4098-ad80-56af9aefa43a: 532 ms
+Pi: 3.1410496,
+Input: 5000000,
+Cold Start: false
+Unique ID: 279664c5-a6ef-4d18-8fca-942dc266edde,
+Billed Duration for Request 279664c5-a6ef-4d18-8fca-942dc266edde: 508 ms
+Pi: 3.1418328,
+Input: 5000000,
+Cold Start: false
+Unique ID: 35fba2d1-93c3-489b-a623-bb87d202009b,
+Billed Duration for Request 35fba2d1-93c3-489b-a623-bb87d202009b: 513 ms
+Pi: 3.1420072,
+Input: 5000000,
+Cold Start: false
+Unique ID: 417a0369-f04b-4eef-9199-6fcfcdf0c280,
+Billed Duration for Request 417a0369-f04b-4eef-9199-6fcfcdf0c280: 573 ms
+Pi: 3.1424712,
+Input: 5000000,
+Cold Start: false
+Unique ID: 8133159e-e277-4ca5-be1c-57a6c2fbe077,
+Billed Duration for Request 8133159e-e277-4ca5-be1c-57a6c2fbe077: 507 ms
+Pi: 3.1413576,
+Input: 5000000,
+Cold Start: false
+Unique ID: 8ac047f9-f09a-4d43-b85c-117030977ad3,
+Billed Duration for Request 8ac047f9-f09a-4d43-b85c-117030977ad3: 528 ms
+Pi: 3.1417048,
+Input: 5000000,
+Cold Start: false
+Unique ID: bfcb4be1-d499-4915-a5a2-c90d03734f9f,
+Billed Duration for Request bfcb4be1-d499-4915-a5a2-c90d03734f9f: 547 ms
+Pi: 3.1416952,
+Input: 5000000,
+Cold Start: false
+Unique ID: 325c561a-d3e9-43e6-aa2c-7187e5accc47,
+Billed Duration for Request 325c561a-d3e9-43e6-aa2c-7187e5accc47: 507 ms
+Pi: 3.1411712,
+Input: 5000000,
+Cold Start: false
+Unique ID: f3b28ae5-3bd4-4118-ad91-fec4532c36e5,
+Billed Duration for Request f3b28ae5-3bd4-4118-ad91-fec4532c36e5: 524 ms
+Pi: 3.1426,
+Input: 5000000,
+Cold Start: false
+Unique ID: c6b5b1d3-a7c4-4ef2-851d-5bbe00d27392,
+Billed Duration for Request c6b5b1d3-a7c4-4ef2-851d-5bbe00d27392: 549 ms
+Pi: 3.1405272,
+Input: 5000000,
+Cold Start: false
+Unique ID: 5b45e5d4-8171-4ce8-bfd6-bdf50f23c01a,
+Billed Duration for Request 5b45e5d4-8171-4ce8-bfd6-bdf50f23c01a: 506 ms
+Pi: 3.141944,
+Input: 5000000,
+Cold Start: false
+Unique ID: 0b80d8bc-c1cc-4037-8edf-dc0b17b663f7,
+Billed Duration for Request 0b80d8bc-c1cc-4037-8edf-dc0b17b663f7: 512 ms
+Pi: 3.1422952,
+Input: 5000000,
+Cold Start: false
+Unique ID: c3bdccde-d20f-4241-af8a-f40e8cd2c1f3,
+Billed Duration for Request c3bdccde-d20f-4241-af8a-f40e8cd2c1f3: 547 ms
+Pi: 3.141708,
+Input: 5000000,
+Cold Start: false
+Unique ID: 6eb02fb1-ceee-41f1-8b38-7ce9972ac831,
+Billed Duration for Request 6eb02fb1-ceee-41f1-8b38-7ce9972ac831: 505 ms
+Pi: 3.1421752,
+Input: 5000000,
+Cold Start: false
+Unique ID: cdd8036f-7d90-4e01-8467-109ff9817cd2,
+Billed Duration for Request cdd8036f-7d90-4e01-8467-109ff9817cd2: 513 ms
+Pi: 3.142064,
+Input: 5000000,
+Cold Start: false
+Unique ID: 21601ef5-1e75-4248-a7e8-9f5dba03f687,
+Billed Duration for Request 21601ef5-1e75-4248-a7e8-9f5dba03f687: 546 ms
+Pi: 3.1418824,
+Input: 5000000,
+Cold Start: false
+Unique ID: cc351efe-5f2a-4047-9695-ced5ce9649c8,
+Billed Duration for Request cc351efe-5f2a-4047-9695-ced5ce9649c8: 502 ms
+Pi: 3.141296,
+Input: 5000000,
+Cold Start: false
+Unique ID: fe00af6a-8740-4ed2-bddb-6456c90e9c00,
+Billed Duration for Request fe00af6a-8740-4ed2-bddb-6456c90e9c00: 514 ms
+Pi: 3.1415416,
+Input: 5000000,
+Cold Start: false
+Unique ID: 6b7de2f5-784d-4282-8c44-57821bf4abd8,
+Billed Duration for Request 6b7de2f5-784d-4282-8c44-57821bf4abd8: 546 ms
+Pi: 3.1421808,
+Input: 5000000,
+Cold Start: false
+Unique ID: 343e9534-6bf8-45dd-ace9-97c03f7543a8,
+Billed Duration for Request 343e9534-6bf8-45dd-ace9-97c03f7543a8: 502 ms
+Pi: 3.1419344,
+Input: 5000000,
+Cold Start: false
+Unique ID: d104f756-cc9d-48de-9b38-9da8cd9e29d3,
+Billed Duration for Request d104f756-cc9d-48de-9b38-9da8cd9e29d3: 517 ms
+Pi: 3.1419512,
+Input: 5000000,
+Cold Start: false
+Unique ID: ff329eb7-05e6-4d09-82e3-3d78a73c574a,
+Billed Duration for Request ff329eb7-05e6-4d09-82e3-3d78a73c574a: 529 ms
+Pi: 3.1419976,
+Input: 5000000,
+Cold Start: false
+Unique ID: 1f6e6f2a-268b-452f-8c14-98a6ca887346,
+Billed Duration for Request 1f6e6f2a-268b-452f-8c14-98a6ca887346: 502 ms
+Pi: 3.1425688,
+Input: 5000000,
+Cold Start: false
+Unique ID: b44ecf3f-87d7-4348-b31a-11162b2e3f97,
+Billed Duration for Request b44ecf3f-87d7-4348-b31a-11162b2e3f97: 511 ms
+Pi: 3.1411896,
+Input: 5000000,
+Cold Start: false
+Unique ID: f976e05d-903c-4a62-a7ff-6bf5ead854f2,
+Billed Duration for Request f976e05d-903c-4a62-a7ff-6bf5ead854f2: 533 ms
+Pi: 3.1416552,
+Input: 5000000,
+Cold Start: false
+Unique ID: b1ee7f34-3f59-4c73-8ef0-6acdf7a9f689,
+Billed Duration for Request b1ee7f34-3f59-4c73-8ef0-6acdf7a9f689: 499 ms
+Pi: 3.1412688,
+Input: 5000000,
+Cold Start: false
+Unique ID: ce67cfbd-719e-423f-a9cb-91abcfaed25d,
+Billed Duration for Request ce67cfbd-719e-423f-a9cb-91abcfaed25d: 512 ms
+Pi: 3.1429288,
+Input: 5000000,
+Cold Start: false
+Unique ID: 0d8f3673-98e3-4ebb-8542-519ee47790ba,
+Billed Duration for Request 0d8f3673-98e3-4ebb-8542-519ee47790ba: 527 ms
+Pi: 3.142564,
+Input: 5000000,
+Cold Start: false
+Unique ID: b075baca-4916-4833-a2cf-43cc3a67b901,
+Billed Duration for Request b075baca-4916-4833-a2cf-43cc3a67b901: 504 ms
+Pi: 3.1423352,
+Input: 5000000,
+Cold Start: false
+Unique ID: e4e124d8-cccb-4459-bf5c-592414ad107f,
+Billed Duration for Request e4e124d8-cccb-4459-bf5c-592414ad107f: 513 ms
+Pi: 3.1409072,
+Input: 5000000,
+Cold Start: false
+Unique ID: 769ce548-6d89-4537-bb9d-150e2b06e5d9,
+Billed Duration for Request 769ce548-6d89-4537-bb9d-150e2b06e5d9: 533 ms
+Pi: 3.1414,
+Input: 5000000,
+Cold Start: false
+Unique ID: 11a6872b-3710-4167-b9a0-ceb3c1d41528,
+Billed Duration for Request 11a6872b-3710-4167-b9a0-ceb3c1d41528: 509 ms
+Pi: 3.1404032,
+Input: 5000000,
+Cold Start: false
+Unique ID: 6354e973-4c0c-41fa-bc16-393b226b72bb,
+Billed Duration for Request 6354e973-4c0c-41fa-bc16-393b226b72bb: 529 ms
+Pi: 3.1413232,
+Input: 5000000,
+Cold Start: false
+Unique ID: 2bb5547e-068c-47ee-8a6a-5294ebe4276f,
+Billed Duration for Request 2bb5547e-068c-47ee-8a6a-5294ebe4276f: 534 ms
+Pi: 3.1402504,
+Input: 5000000,
+Cold Start: false
+Unique ID: ce1c7f7b-f699-4992-a1eb-5663b5da9759,
+Billed Duration for Request ce1c7f7b-f699-4992-a1eb-5663b5da9759: 506 ms
+Pi: 3.1421408,
+Input: 5000000,
+Cold Start: false
+Unique ID: 88d19c35-93a6-423c-a59c-24a32de968f2,
+Billed Duration for Request 88d19c35-93a6-423c-a59c-24a32de968f2: 511 ms
+Pi: 3.1415248,
+Input: 5000000,
+Cold Start: false
+Unique ID: 92ecdc56-a8d1-4444-bc3c-d84dd48e4777,
+Billed Duration for Request 92ecdc56-a8d1-4444-bc3c-d84dd48e4777: 532 ms
+Pi: 3.1419016,
+Input: 5000000,
+Cold Start: false
+Unique ID: 174cf3c9-91b0-4408-9c8e-506332f2ddda,
+Billed Duration for Request 174cf3c9-91b0-4408-9c8e-506332f2ddda: 504 ms
+Pi: 3.1412,
+Input: 5000000,
+Cold Start: false
+Unique ID: 128265b4-1a64-4f42-96ad-5112a05d8829,
+Billed Duration for Request 128265b4-1a64-4f42-96ad-5112a05d8829: 513 ms
+Pi: 3.1421888,
+Input: 5000000,
+Cold Start: false
+Unique ID: 26cbe9ca-927e-416e-8d18-7e226d77fdd6,
+Billed Duration for Request 26cbe9ca-927e-416e-8d18-7e226d77fdd6: 562 ms
+Pi: 3.1409432,
+Input: 5000000,
+Cold Start: false
+Unique ID: 8c319589-4580-442d-9c71-16284d65d7a0,
+Billed Duration for Request 8c319589-4580-442d-9c71-16284d65d7a0: 519 ms
+Pi: 3.1418216,
+Input: 5000000,
+Cold Start: false
+Unique ID: 7ddb71f9-5c7a-4e64-b04f-d0d04bb8e739,
+Billed Duration for Request 7ddb71f9-5c7a-4e64-b04f-d0d04bb8e739: 529 ms
+Pi: 3.142184,
+Input: 5000000,
+Cold Start: false
+Unique ID: e17cd7f4-36d1-4351-89f3-7d86cee8cd7a,
+Billed Duration for Request e17cd7f4-36d1-4351-89f3-7d86cee8cd7a: 549 ms
+Pi: 3.1421704,
+Input: 5000000,
+Cold Start: false
+Unique ID: 5b941f3c-a636-4a7c-b00e-9eb58d365f38,
+Billed Duration for Request 5b941f3c-a636-4a7c-b00e-9eb58d365f38: 507 ms
+Pi: 3.1405392,
+Input: 5000000,
+Cold Start: false
+Unique ID: 8cd8b33a-6648-4c68-b8d9-a9e41fad09a4,
+Billed Duration for Request 8cd8b33a-6648-4c68-b8d9-a9e41fad09a4: 528 ms
+Pi: 3.1418152,
+Input: 5000000,
+Cold Start: false
+Unique ID: bb03c52a-1a4f-4905-8b1a-5c6b67bb9a64,
+Billed Duration for Request bb03c52a-1a4f-4905-8b1a-5c6b67bb9a64: 547 ms
+Pi: 3.14158,
+Input: 5000000,
+Cold Start: false
+Unique ID: 769b250d-7c59-482d-9bc7-37282338283f,
+Billed Duration for Request 769b250d-7c59-482d-9bc7-37282338283f: 494 ms
+Pi: 3.141468,
+Input: 5000000,
+Cold Start: false
+Unique ID: e5b231dc-885a-4a2a-9260-ae9c8ec36d0c,
+Billed Duration for Request e5b231dc-885a-4a2a-9260-ae9c8ec36d0c: 512 ms
+Pi: 3.1402808,
+Input: 5000000,
+Cold Start: false
+Unique ID: 3fb03fda-d667-4bb1-9397-c5be20b2cf76,
+Billed Duration for Request 3fb03fda-d667-4bb1-9397-c5be20b2cf76: 536 ms
+Pi: 3.142004,
+Input: 5000000,
+Cold Start: false
+Unique ID: b18624dc-f35b-466a-8eb3-fdd3f24666a6,
+Billed Duration for Request b18624dc-f35b-466a-8eb3-fdd3f24666a6: 506 ms
+Pi: 3.1423616,
+Input: 5000000,
+Cold Start: false
+Unique ID: c23aaa90-14bc-4a91-bfd9-506bde436b0e,
+Billed Duration for Request c23aaa90-14bc-4a91-bfd9-506bde436b0e: 525 ms
+Pi: 3.141424,
+Input: 5000000,
+Cold Start: false
+Unique ID: ce52d210-cc65-4161-859b-dc870bc3a855,
+Billed Duration for Request ce52d210-cc65-4161-859b-dc870bc3a855: 543 ms
+Pi: 3.1415816,
+Input: 5000000,
+Cold Start: false
+Unique ID: da39e6a3-1a8d-44d8-8590-9645a24f3b15,
+Billed Duration for Request da39e6a3-1a8d-44d8-8590-9645a24f3b15: 492 ms
+Pi: 3.142528,
+Input: 5000000,
+Cold Start: false
+Unique ID: 1e6f4287-def1-436d-b551-f0528674c91b,
+Billed Duration for Request 1e6f4287-def1-436d-b551-f0528674c91b: 524 ms
+Pi: 3.1416336,
+Input: 5000000,
+Cold Start: false
+Unique ID: 795ea1f9-56ed-4931-9775-9e187be5b1bc,
+Billed Duration for Request 795ea1f9-56ed-4931-9775-9e187be5b1bc: 568 ms
+Pi: 3.141972,
+Input: 5000000,
+Cold Start: false
+Unique ID: 66882777-d9ea-406d-8831-812aff9bd04f,
+Billed Duration for Request 66882777-d9ea-406d-8831-812aff9bd04f: 506 ms
+Pi: 3.1421152,
+Input: 5000000,
+Cold Start: false
+Unique ID: 9e542622-a44c-4c88-a8ba-3452ca64d51a,
+Billed Duration for Request 9e542622-a44c-4c88-a8ba-3452ca64d51a: 513 ms
+Pi: 3.1405552,
+Input: 5000000,
+Cold Start: false
+Unique ID: 00de9106-9797-42d2-bf62-135c5226b0d3,
+Billed Duration for Request 00de9106-9797-42d2-bf62-135c5226b0d3: 547 ms
+Pi: 3.142096,
+Input: 5000000,
+Cold Start: false
+Unique ID: 7977cde3-ec70-4c28-ad5b-f003ec59d851,
+Billed Duration for Request 7977cde3-ec70-4c28-ad5b-f003ec59d851: 504 ms
+Pi: 3.1404752,
+Input: 5000000,
+Cold Start: false
+Unique ID: e25d6370-8162-497d-bc9a-5810ebd37018,
+Billed Duration for Request e25d6370-8162-497d-bc9a-5810ebd37018: 514 ms
+Pi: 3.1421608,
+Input: 5000000,
+Cold Start: false
+Unique ID: f9664d8e-b2e6-4aed-953e-fb89e97eccb5,
+Billed Duration for Request f9664d8e-b2e6-4aed-953e-fb89e97eccb5: 543 ms
+Pi: 3.1422304,
+Input: 5000000,
+Cold Start: false
+Unique ID: d53f0009-9be7-491e-a774-db7970063427,
+Billed Duration for Request d53f0009-9be7-491e-a774-db7970063427: 506 ms
+Pi: 3.1410056,
+Input: 5000000,
+Cold Start: false
+Unique ID: e3c0ce45-d4b9-44ee-951b-4699fd7cd161,
+Billed Duration for Request e3c0ce45-d4b9-44ee-951b-4699fd7cd161: 527 ms
+Pi: 3.1408544,
+Input: 5000000,
+Cold Start: false
+Unique ID: 44a5de0d-b00b-42b8-af4f-8ac46f9615a9,
+Billed Duration for Request 44a5de0d-b00b-42b8-af4f-8ac46f9615a9: 549 ms
+Pi: 3.1412856,
+Input: 5000000,
+Cold Start: false
+Unique ID: 646dec4e-53da-4ec0-9287-443610c6c3d0,
+Billed Duration for Request 646dec4e-53da-4ec0-9287-443610c6c3d0: 502 ms
+Pi: 3.1431576,
+Input: 5000000,
+Cold Start: false
+Unique ID: 1039bb7d-d1ce-4d5d-9fa9-a5c4543be9f1,
+Billed Duration for Request 1039bb7d-d1ce-4d5d-9fa9-a5c4543be9f1: 508 ms
+Pi: 3.1416808,
+Input: 5000000,
+Cold Start: false
+Unique ID: 8612dbb3-56dd-421f-98bd-4a41d907e441,
+Billed Duration for Request 8612dbb3-56dd-421f-98bd-4a41d907e441: 552 ms
+Pi: 3.1414984,
+Input: 5000000,
+Cold Start: false
+Unique ID: 84f2a696-02a1-4b77-8be0-f9e5492ffb82,
+Billed Duration for Request 84f2a696-02a1-4b77-8be0-f9e5492ffb82: 499 ms
+Pi: 3.1416064,
+Input: 5000000,
+Cold Start: false
+Unique ID: e085ff81-c7de-4af9-ad92-e08d5636ed86,
+Billed Duration for Request e085ff81-c7de-4af9-ad92-e08d5636ed86: 525 ms
+Pi: 3.1413768,
+Input: 5000000,
+Cold Start: false
+Unique ID: 72515abd-3515-40a7-a28a-aca5a2a75c81,
+Billed Duration for Request 72515abd-3515-40a7-a28a-aca5a2a75c81: 549 ms
+Pi: 3.1415664,
+Input: 5000000,
+Cold Start: false
+Unique ID: c8ef6217-128d-4c57-914a-e850ee4ab141,
+Billed Duration for Request c8ef6217-128d-4c57-914a-e850ee4ab141: 490 ms
+Pi: 3.1405064,
+Input: 5000000,
+Cold Start: false
+Unique ID: b1d76dc4-1ec8-4aa5-8e83-5c2d9c975a0d,
+Billed Duration for Request b1d76dc4-1ec8-4aa5-8e83-5c2d9c975a0d: 512 ms
+Pi: 3.1420968,
+Input: 5000000,
+Cold Start: false
+Unique ID: bc2fe083-101a-4ac7-a66f-373a1537809b,
+Billed Duration for Request bc2fe083-101a-4ac7-a66f-373a1537809b: 545 ms
+Pi: 3.1426792,
+Input: 5000000,
+Cold Start: false
+Unique ID: 45ec651e-b4a6-4b79-8046-d62bef2b680f,
+Billed Duration for Request 45ec651e-b4a6-4b79-8046-d62bef2b680f: 506 ms
+Pi: 3.1426344,
+Input: 5000000,
+Cold Start: false
+Unique ID: 341d8455-e66e-4798-b2d6-f76fdbb5f17d,
+Billed Duration for Request 341d8455-e66e-4798-b2d6-f76fdbb5f17d: 528 ms
+Pi: 3.143236,
+Input: 5000000,
+Cold Start: false
+Unique ID: 45b44165-04e6-4d1f-b48f-e86e4c23512e,
+Billed Duration for Request 45b44165-04e6-4d1f-b48f-e86e4c23512e: 531 ms
+Pi: 3.1432096,
+Input: 5000000,
+Cold Start: false
+Unique ID: 746280d6-b7ce-42b0-8827-a42ed10ed9a1,
+Billed Duration for Request 746280d6-b7ce-42b0-8827-a42ed10ed9a1: 506 ms
+Pi: 3.1407528,
+Input: 5000000,
+Cold Start: false
+Unique ID: d1658ea3-f793-41a5-8eb6-9bc4dccc2f44,
+Billed Duration for Request d1658ea3-f793-41a5-8eb6-9bc4dccc2f44: 514 ms
+Pi: 3.141568,
+Input: 5000000,
+Cold Start: false
+Unique ID: 3ba6890a-cb6c-4c50-9dd7-3773f29e233d,
+Billed Duration for Request 3ba6890a-cb6c-4c50-9dd7-3773f29e233d: 527 ms
+Pi: 3.1401896,
+Input: 5000000,
+Cold Start: false
+Unique ID: f05bc718-9fec-47b6-b109-b05d825e5ff3,
+Billed Duration for Request f05bc718-9fec-47b6-b109-b05d825e5ff3: 506 ms
+Pi: 3.1409656,
+Input: 5000000,
+Cold Start: false
+Unique ID: 31e65850-4022-4c66-b891-047181bbfd7b,
+Billed Duration for Request 31e65850-4022-4c66-b891-047181bbfd7b: 516 ms
+Pi: 3.142128,
+Input: 5000000,
+Cold Start: false
+Unique ID: 858b7689-ae74-4f06-9977-abb552d940e4,
+Billed Duration for Request 858b7689-ae74-4f06-9977-abb552d940e4: 548 ms
+Pi: 3.1420736,
+Input: 5000000,
+Cold Start: false
+Unique ID: e2147772-b323-4778-a576-bbe6488e2e0a,
+Billed Duration for Request e2147772-b323-4778-a576-bbe6488e2e0a: 502 ms
+Pi: 3.1410848,
+Input: 5000000,
+Cold Start: false
+Unique ID: aab24a01-5040-4121-ae6e-30114a332bb4,
+Billed Duration for Request aab24a01-5040-4121-ae6e-30114a332bb4: 528 ms
+Pi: 3.1411888,
+Input: 5000000,
+Cold Start: false
+Unique ID: 2bccea50-150b-4952-81c3-588fd87dc392,
+Billed Duration for Request 2bccea50-150b-4952-81c3-588fd87dc392: 533 ms
+Pi: 3.1406368,
+Input: 5000000,
+Cold Start: false
+Unique ID: 990c12f8-4241-4d7e-9305-897a13218fef,
+Billed Duration for Request 990c12f8-4241-4d7e-9305-897a13218fef: 506 ms
+Pi: 3.1420024,
+Input: 5000000,
+Cold Start: false
+Unique ID: 6e9f7107-5874-4f8b-ba17-dca7158c2ce2,
+Billed Duration for Request 6e9f7107-5874-4f8b-ba17-dca7158c2ce2: 528 ms
+Pi: 3.1419864,
+Input: 5000000,
+Cold Start: false
+Unique ID: a093fea3-35a0-4d94-b664-977cca061bad,
+Billed Duration for Request a093fea3-35a0-4d94-b664-977cca061bad: 548 ms
+Pi: 3.1411744,
+Input: 5000000,
+Cold Start: false
+Unique ID: 4986066f-3c97-45ff-bf6a-97efde18a7db,
+Billed Duration for Request 4986066f-3c97-45ff-bf6a-97efde18a7db: 507 ms
+Pi: 3.1410056,
+Input: 5000000,
+Cold Start: false
+Unique ID: 1e982a8e-dbe9-4afa-a3c9-648ff2a8dc04,
+Billed Duration for Request 1e982a8e-dbe9-4afa-a3c9-648ff2a8dc04: 528 ms
+Pi: 3.1409296,
+Input: 5000000,
+Cold Start: false
+Unique ID: f4b43f3c-d993-4adc-b029-971e184531b8,
+Billed Duration for Request f4b43f3c-d993-4adc-b029-971e184531b8: 547 ms
+Pi: 3.1417408,
+Input: 5000000,
+Cold Start: false
+Unique ID: 3f8c1379-bf19-491a-a7ad-2684d6df4d13,
+Billed Duration for Request 3f8c1379-bf19-491a-a7ad-2684d6df4d13: 507 ms
+Pi: 3.14098,
+Input: 5000000,
+Cold Start: false
+Unique ID: 403ec551-523d-4594-bd1c-78587c53fdc2,
+Billed Duration for Request 403ec551-523d-4594-bd1c-78587c53fdc2: 517 ms
+Pi: 3.141524,
+Input: 5000000,
+Cold Start: false
+Unique ID: c1038452-1a87-43d8-9936-7059d2459301,
+Billed Duration for Request c1038452-1a87-43d8-9936-7059d2459301: 529 ms
+Pi: 3.1424088,
+Input: 5000000,
+Cold Start: false
+Unique ID: d18f4454-a2ad-4cde-86e9-a3544078f925,
+Billed Duration for Request d18f4454-a2ad-4cde-86e9-a3544078f925: 488 ms
+Pi: 3.1411392,
+Input: 5000000,
+Cold Start: false
+Unique ID: e9a8b713-5327-4510-a40f-a01a93d843ba,
+Billed Duration for Request e9a8b713-5327-4510-a40f-a01a93d843ba: 518 ms
+Pi: 3.1405168,
+Input: 5000000,
+Cold Start: false
+Unique ID: b07deefd-3dc2-4894-8864-65d217372fdf,
+Billed Duration for Request b07deefd-3dc2-4894-8864-65d217372fdf: 535 ms
+Pi: 3.1411752,
+Input: 5000000,
+Cold Start: false
+Unique ID: cdd23da8-e627-41bf-a17f-187ec3b88f24,
+Billed Duration for Request cdd23da8-e627-41bf-a17f-187ec3b88f24: 506 ms
+Pi: 3.1414816,
+Input: 5000000,
+Cold Start: false
+Unique ID: 4f1a5f84-79d8-4675-8803-90cf35359845,
+Billed Duration for Request 4f1a5f84-79d8-4675-8803-90cf35359845: 513 ms
+Pi: 3.1413608,
+Input: 5000000,
+Cold Start: false
+Unique ID: fbedb1d9-7d95-49c5-81de-48363ed27684,
+Billed Duration for Request fbedb1d9-7d95-49c5-81de-48363ed27684: 533 ms
+Pi: 3.1434424,
+Input: 5000000,
+Cold Start: false

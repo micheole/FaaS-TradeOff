@@ -50,6 +50,8 @@ resource "aws_lambda_function" "lambda" {
 
   runtime = var.lambda_runtime
   handler = var.lambda_handler
+
+  memory_size = var.memory_size
 }
 
 # Create an API Gateway

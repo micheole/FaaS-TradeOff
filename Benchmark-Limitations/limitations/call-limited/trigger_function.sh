@@ -15,11 +15,14 @@
 set -euo pipefail
 
 CONFIG_PATH="$1"
+PROVIDER="$2"
+INPUT_PARAM1="$3"
+INPUT_PARAM2="$4"
 
 # Function to display usage
 usage() {
-  echo "Usage: $0 <path_to_config_yaml>"
-  echo "Example: $0 configurations/call-limited.yaml"
+  echo "Usage: $0 <path_to_config_yaml> <provider> <input_param1> <input_param2>"
+  echo "Example: $0 configurations/call-limited.yaml aws 1000000 1050000"
   exit 1
 }
 
@@ -31,10 +34,9 @@ fi
 
 # Extract values from YAML using yq
 BENCHMARK=$(yq '.benchmark' "$CONFIG_PATH" | sed 's/^"//;s/"$//')
-TOTAL_CALLS=$(yq '.total_calls' "$CONFIG_PATH" | sed 's/^"//;s/"$//')
+ARRIVAL_RATE=$(yq '.arrival_rate' "$CONFIG_PATH" | sed 's/^"//;s/"$//')
 DURATION=$(yq '.duration' "$CONFIG_PATH" | sed 's/^"//;s/"$//')
 ARTILLERY_SCENARIOS=$(yq '.artillery_scenarios' "$CONFIG_PATH")
-INPUT=1000000
 
 # Define the configuration name based on the YAML file name
 CONFIG_NAME=$(basename "$CONFIG_PATH" .yaml)
@@ -42,50 +44,60 @@ CONFIG_NAME=$(basename "$CONFIG_PATH" .yaml)
 UNIQUE_ID=$(date +'%Y-%m-%d_%H-%M-%S')-$$
 
 echo "===================================================================="
-echo " Call-Limited Trigger: Starting benchmark with config '${CONFIG_NAME}'"
+echo " Call-Limited Trigger: Starting benchmark with config '${CONFIG_NAME}' and provider '$PROVIDER'"
 echo "===================================================================="
 
-# Iterate over each cloud provider
-CLOUD_PROVIDERS=$(echo "$ARTILLERY_SCENARIOS" | yq 'keys | .[]' -)
+SCENARIO_PATH=$(echo "$ARTILLERY_SCENARIOS" | yq ".\"$PROVIDER\".path" - | tr -d '"')
+TARGET_URL=$(echo "$ARTILLERY_SCENARIOS" | yq ".\"$PROVIDER\".target" - | tr -d '"')
 
-for provider in $CLOUD_PROVIDERS; do
-  PROVIDER=$(echo "$provider" | tr -d '"')
-  SCENARIO_PATH=$(echo "$ARTILLERY_SCENARIOS" | yq ".\"$PROVIDER\".path" - | tr -d '"')
-  echo "PATH: $SCENARIO_PATH"
-  TARGET_URL=$(echo "$ARTILLERY_SCENARIOS" | yq ".\"$PROVIDER\".target" - | tr -d '"')
-  echo "Target URL: $TARGET_URL"
+# Check if the scenario file exists
+if [ ! -f "$SCENARIO_PATH" ]; then
+  echo "Error: Artillery scenario file '$SCENARIO_PATH' not found for provider '$PROVIDER'."
+  exit 1
+fi
 
-  # Check if the scenario file exists
-  if [ ! -f "$SCENARIO_PATH" ]; then
-    echo "Error: Artillery scenario file '$SCENARIO_PATH' not found for provider '$PROVIDER'."
-    exit 1
-  fi
+COLD_INPUT=1000000
+COLD_DURATION=10
+COLD_ARRIVAL_RATE=8
 
-  # Define the output log file
-  TRIGGER_LOG="logs/tmp/${CONFIG_NAME}/trigger_output_${PROVIDER}_${CONFIG_NAME}-uniqueid-$UNIQUE_ID.tmp"
+WARMING_UP_ARTILLERY_CONFIG="limitations/call-limited/temp_artillery_config_warming_up.yaml"
 
-  # Create a temporary artillery file
-  TEMP_ARTILLERY_CONFIG="limitations/call-limited/temp_artillery_config_${CONFIG_NAME}_${PROVIDER}_${UNIQUE_ID}.yaml"
+sed -e "s/__INPUT__/$COLD_INPUT/" \
+    -e "s/__DURATION__/$COLD_DURATION/" \
+    -e "s/__ARRIVALRATE__/$COLD_ARRIVAL_RATE/" "$SCENARIO_PATH" > "$WARMING_UP_ARTILLERY_CONFIG"
 
-  sed -e "s/__INPUT__/$INPUT/" \
-    -e "s/__DURATION__/$DURATION/" \
-    -e "s/__ARRIVALCOUNT__/$TOTAL_CALLS/" $SCENARIO_PATH > $TEMP_ARTILLERY_CONFIG
-  
+artillery run "$WARMING_UP_ARTILLERY_CONFIG" -t "$TARGET_URL"
+
+rm -f "$WARMING_UP_ARTILLERY_CONFIG"
+
+# Loop through both input parameters and execute Artillery for each
+for INPUT_PARAM in "$INPUT_PARAM1" "$INPUT_PARAM2"; do
+
+  # Define the output log file for each input parameter
+  TRIGGER_LOG="logs/tmp/${CONFIG_NAME}/trigger_output_${PROVIDER}_${CONFIG_NAME}-input${INPUT_PARAM}-uniqueid-$UNIQUE_ID.tmp"
+
+  # Create a temporary artillery file for each input parameter
+  TEMP_ARTILLERY_CONFIG="limitations/call-limited/temp_artillery_config_${CONFIG_NAME}_${PROVIDER}_${INPUT_PARAM}_${UNIQUE_ID}.yaml"
+
+  sed -e "s/__INPUT__/$INPUT_PARAM/" \
+      -e "s/__DURATION__/$DURATION/" \
+      -e "s/__ARRIVALRATE__/$ARRIVAL_RATE/" $SCENARIO_PATH > $TEMP_ARTILLERY_CONFIG
+
   echo "Running Artillery for provider: $PROVIDER"
   echo "Artillery Config: $TEMP_ARTILLERY_CONFIG"
-  
+
   # Execute Artillery and capture specific output lines
-  artillery run $TEMP_ARTILLERY_CONFIG -t $TARGET_URL | grep -E "Unique ID:|Pi:|Trials:" >> $TRIGGER_LOG
-  
+  artillery run "$TEMP_ARTILLERY_CONFIG" -t "$TARGET_URL" | grep -E "Unique ID:|Input:|Cold Start:" >> "$TRIGGER_LOG"
+
   echo "Artillery run for $PROVIDER completed. Output appended to $TRIGGER_LOG"
-  
+
   # Clean up temporary Artillery config
   rm -f "$TEMP_ARTILLERY_CONFIG"
   echo "Temporary Artillery config '$TEMP_ARTILLERY_CONFIG' deleted."
 done
 
 echo "===================================================================="
-echo " Call-Limited Trigger: All Artillery runs completed for '${CONFIG_NAME}'."
+echo " Call-Limited Trigger: All Artillery runs completed for '${CONFIG_NAME}' and provider '$PROVIDER'."
 echo "===================================================================="
 
 exit 0

@@ -2,13 +2,12 @@
 config:
   phases:
     - duration: __DURATION__
-      arrivalCount: __ARRIVALCOUNT__
-  target: "https://<aws_lambda_or_gcp_function_url>"
+      arrivalRate: __ARRIVALRATE__
 
 scenarios:
   - flow:
       - post:
-          url: "/"
+          url: "{{ target }}"
           json:
             num: __INPUT__
           capture:
@@ -16,10 +15,13 @@ scenarios:
               as: uniqueId
             - json: "$.num"
               as: num
+            - json: "$.markColdStart"
+              as: coldStart
           expect:
             - statusCode: 200
             - contentType: "application/json"
       - log: |
           Unique ID: {{ uniqueId }},
-          Num: {{ num }}
+          Input: {{ num }},
+          Cold Start: {{ coldStart }}
     name: "Sieve-of-Eratosthenes"

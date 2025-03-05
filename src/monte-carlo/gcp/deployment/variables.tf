@@ -47,7 +47,7 @@ variable "function_runtime" {
 variable "function_memory_mb" {
   description = "The amount of memory (in MB) allocated to the GCP Cloud Function"
   type        = number
-  default     = 128
+  default     = 512
 }
 
 variable "service_account_name" {

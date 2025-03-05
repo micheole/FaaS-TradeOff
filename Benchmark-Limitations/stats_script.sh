@@ -29,9 +29,9 @@ fi
 CONFIG_NAME="$1"
 
 # Define directories
-LOG_DIR="logs/anomaly_detected/${CONFIG_NAME}"
+LOG_DIR="logs/tmp/${CONFIG_NAME}"
 STATS_DIR="statistics/${CONFIG_NAME}"
-# RETRIEVED_LOG_DIR="logs/processed/${CONFIG_NAME}"
+RETRIEVED_LOG_DIR="logs/processed/${CONFIG_NAME}"
 
 echo "===================================================================="
 echo " Statistics Script: Computing stats for '${CONFIG_NAME}'"
@@ -61,17 +61,17 @@ for LOG_FILE in "$LOG_DIR"/*.log; do
         
         # Initialize an array to hold durations
         # durations=()
-        durations=($(awk -F',' '$4 == "False" {print $2}' "$LOG_FILE"))
+        # durations=($(awk -F',' '$4 == "False" {print $2}' "$LOG_FILE"))
         
-        # if [[ "$PROVIDER" == "aws" ]]; then
-        #     # Extract Billed Durations for AWS
-        #     # Example line: Billed Duration for Request <ID>: 538 ms
-        #     durations=($(grep "Billed Duration" "$LOG_FILE" | awk -F": " '{print $2}' | awk '{print $1}'))
-        # elif [[ "$PROVIDER" == "gcp" ]]; then
-        #     # Extract Execution Times for GCP
-        #     # Example line: Execution Time for Trace ID <ID>: 598 ms
-        #     durations=($(grep "Execution Time" "$LOG_FILE" | awk -F": " '{print $2}' | awk '{print $1}'))
-        # fi
+        if [[ "$PROVIDER" == "aws" ]]; then
+            # Extract Billed Durations for AWS
+            # Example line: Billed Duration for Request <ID>: 538 ms
+            durations=($(grep "Billed Duration" "$LOG_FILE" | awk -F": " '{print $2}' | awk '{print $1}'))
+        elif [[ "$PROVIDER" == "gcp" ]]; then
+            # Extract Execution Times for GCP
+            # Example line: Execution Time for Trace ID <ID>: 598 ms
+            durations=($(grep "Execution Time" "$LOG_FILE" | awk -F": " '{print $2}' | awk '{print $1}'))
+        fi
 
         # Check if durations were extracted
         if [[ ${#durations[@]} -eq 0 ]]; then
@@ -138,7 +138,7 @@ for LOG_FILE in "$LOG_DIR"/*.log; do
         # echo "Statistics for '$FILENAME' - Mean: ${mean} ms, 95% CI: [${ci_lower}, ${ci_upper}] ms"
 
         # Move the processed log file to the processed_logs directory
-        # mv "$LOG_FILE" "$RETRIEVED_LOG_DIR"
+        mv "$LOG_FILE" "$RETRIEVED_LOG_DIR"
     else
         echo "No .log files found in $LOG_DIR."
     fi

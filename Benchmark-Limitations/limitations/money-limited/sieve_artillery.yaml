@@ -1,25 +1,26 @@
-# limitations/call-limited/sieve_artillery.yaml
 config:
   phases:
-    - duration: __DURATION__
-      arrivalCount: __ARRIVALCOUNT__
-  target: "https://<aws_lambda_or_gcp_function_url>"
+    - duration: 20
+      arrivalRate: 5
 
 scenarios:
   - flow:
       - post:
-          url: "/"
+          url: "{{ target }}"
           json:
-            num: __NUM__
+            num: __INPUT__
           capture:
             - json: "$.uniqueId"
               as: uniqueId
             - json: "$.num"
               as: num
+            - json: "$.markColdStart"
+              as: coldStart
           expect:
             - statusCode: 200
             - contentType: "application/json"
       - log: |
           Unique ID: {{ uniqueId }},
-          Num: {{ num }}
+          Input: {{ num }},
+          Cold Start: {{ coldStart }}
     name: "Sieve-of-Eratosthenes"

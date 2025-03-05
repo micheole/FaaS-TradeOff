@@ -11,15 +11,18 @@
 set -euo pipefail
 
 CONFIG_PATH="$1"
+PROVIDER="$2"
+INPUT_PARAM1="$3"
+INPUT_PARAM2="$4"
 
-# Pricing details: 128MB of memory
-AWS_PRICE_PER_MS=0.0000000021
-GCP_PRICE_PER_MS=0.00000000231
+# Pricing details: 512MB of memory
+AWS_PRICE_PER_MS=0.0000000083
+GCP_PRICE_PER_MS=0.00000000925
 
 # Function to display usage
 usage() {
-  echo "Usage: $0 <path_to_config_yaml>"
-  echo "Example: $0 configurations/money-limited.yaml"
+  echo "Usage: $0 <path_to_config_yaml> <provider> <input_param1> <input_param2>"
+  echo "Example: $0 configurations/money-limited.yaml aws 1000000 1050000"
   exit 1
 }
 
@@ -33,8 +36,7 @@ calculate_cost() {
         if [[ "$PROVIDER" == "aws" ]]; then
             if [[ "$LINE" =~ Billed\ Duration\ for\ Request.*:\ ([0-9]+)\ ms ]]; then
                 duration_ms="${BASH_REMATCH[1]}"
-                # Send debug info to stderr
-                echo "AWS duration: $duration_ms ms" >&2
+                
                 # Verify duration_ms is numeric
                 if [[ -n "$duration_ms" && "$duration_ms" =~ ^[0-9]+$ ]]; then
                     cost=$(echo "$duration_ms * $AWS_PRICE_PER_MS" | bc -l 2>/dev/null)
@@ -43,7 +45,6 @@ calculate_cost() {
                         echo "Warning: Invalid cost calculation for AWS. Skipping..." >&2
                         continue
                     fi
-                    echo "AWS cost for this request: $cost" >&2
                     BATCH_COST=$(echo "$BATCH_COST + $cost" | bc -l 2>/dev/null)
                 else
                     echo "Warning: Invalid or empty duration_ms for AWS: '$duration_ms'. Skipping..." >&2
@@ -52,7 +53,6 @@ calculate_cost() {
         elif [[ "$PROVIDER" == "gcp" ]]; then
             if [[ "$LINE" =~ Execution\ Time\ for\ Trace\ ID.*:\ ([0-9]+)\ ms ]]; then
                 duration_ms="${BASH_REMATCH[1]}"
-                echo "GCP duration: $duration_ms ms" >&2  # Debug
                 # Verify duration_ms is numeric
                 if [[ -n "$duration_ms" && "$duration_ms" =~ ^[0-9]+$ ]]; then
                     cost=$(echo "$duration_ms * $GCP_PRICE_PER_MS" | bc -l 2>/dev/null)
@@ -60,7 +60,6 @@ calculate_cost() {
                         echo "Warning: Invalid cost calculation for GCP. Skipping..." >&2
                         continue
                     fi
-                    echo "GCP cost for this request: $cost" >&2  # Debug
                     BATCH_COST=$(echo "$BATCH_COST + $cost" | bc -l 2>/dev/null)
                 else
                     echo "Warning: Invalid or empty duration_ms for GCP: '$duration_ms'. Skipping..." >&2
@@ -83,9 +82,7 @@ fi
 BENCHMARK=$(yq '.benchmark' "$CONFIG_PATH" | sed 's/^"//;s/"$//')
 BUDGET=$(yq '.total_budget' "$CONFIG_PATH" | sed 's/^"//;s/"$//')
 ARTILLERY_SCENARIOS=$(yq '.artillery_scenarios' "$CONFIG_PATH")
-INPUT=1000000
-ARRIVALCOUNT=100
-MAX_BATCHES=10
+MAX_BATCHES=$(yq '.max_batches' "$CONFIG_PATH" | sed 's/^"//;s/"$//')
 
 # Define the configuration name based on the YAML file name
 CONFIG_NAME=$(basename "$CONFIG_PATH" .yaml)
@@ -93,45 +90,54 @@ CONFIG_NAME=$(basename "$CONFIG_PATH" .yaml)
 UNIQUE_ID=$(date +'%Y-%m-%d_%H-%M-%S')-$$
 
 echo "===================================================================="
-echo " Money-Limited Trigger: Starting benchmark with config '${CONFIG_NAME}'"
+echo " Money-Limited Trigger: Starting benchmark with config '${CONFIG_NAME}' and provider '${PROVIDER}'"
 echo "===================================================================="
 
-# Iterate over each cloud provider
-CLOUD_PROVIDERS=$(echo "$ARTILLERY_SCENARIOS" | yq 'keys | .[]' -)
+SCENARIO_PATH=$(echo "$ARTILLERY_SCENARIOS" | yq ".\"$PROVIDER\".path" - | tr -d '"')
+TARGET_URL=$(echo "$ARTILLERY_SCENARIOS" | yq ".\"$PROVIDER\".target" - | tr -d '"')
 
-for provider in $CLOUD_PROVIDERS; do
-    PROVIDER=$(echo "$provider" | tr -d '"')
-    SCENARIO_PATH=$(echo "$ARTILLERY_SCENARIOS" | yq ".\"$PROVIDER\".path" - | tr -d '"')
-    echo "PATH: $SCENARIO_PATH"
-    TARGET_URL=$(echo "$ARTILLERY_SCENARIOS" | yq ".\"$PROVIDER\".target" - | tr -d '"')
-    echo "Target URL: $TARGET_URL"
+# Check if the scenario file exists
+if [ ! -f "$SCENARIO_PATH" ]; then
+    echo "Error: Artillery scenario file '$SCENARIO_PATH' not found for provider '$PROVIDER'."
+    exit 1
+fi
 
-    # Check if the scenario file exists
-    if [ ! -f "$SCENARIO_PATH" ]; then
-        echo "Error: Artillery scenario file '$SCENARIO_PATH' not found for provider '$PROVIDER'."
-        exit 1
-    fi
+# Resolve the absolute path of the current script directory
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
+# Compute the absolute path to the log retrieval script
+if [[ "$PROVIDER" == "aws" ]]; then
+    LOG_RETRIEVAL_PATH="$(cd "$SCRIPT_DIR/../../" && pwd)/log_retrieval-aws.py"
+    REGION=$(echo "$ARTILLERY_SCENARIOS" | yq ".\"$PROVIDER\".region" - | tr -d '"')
+    LOG_ID=$(echo "$ARTILLERY_SCENARIOS" | yq ".\"$PROVIDER\".loggroup" - | tr -d '"')
+elif [[ "$PROVIDER" == "gcp" ]]; then 
+    LOG_RETRIEVAL_PATH="$(cd "$SCRIPT_DIR/../../" && pwd)/log_retrieval-gcp.py"
+    REGION=$(echo "$ARTILLERY_SCENARIOS" | yq ".\"$PROVIDER\".region" - | tr -d '"')
+    LOG_ID=$(echo "$ARTILLERY_SCENARIOS" | yq ".\"$PROVIDER\".projectid" - | tr -d '"')
+fi
+
+total_cost=0
+
+for INPUT_PARAM in "$INPUT_PARAM1" "$INPUT_PARAM2"; do
+    partial_cost=0
     current_batch=0
-    total_cost=0
+    while [[ "$current_batch" -lt $((MAX_BATCHES / 2)) ]]; do
 
-    while [[ "$current_batch" -lt "$MAX_BATCHES" ]]; do
         ((current_batch++))
 
         # Define the output log file
-        TRIGGER_LOG="logs/tmp/${CONFIG_NAME}/trigger_output_${PROVIDER}_${CONFIG_NAME}-batch${current_batch}-uniqueid-$UNIQUE_ID.tmp"
+        TRIGGER_LOG="logs/tmp/${CONFIG_NAME}/trigger_output_${PROVIDER}_${CONFIG_NAME}-input${INPUT_PARAM}-uniqueid-$UNIQUE_ID.tmp"
 
         # Create a temporary artillery file
         TEMP_ARTILLERY_CONFIG="limitations/money-limited/temp_artillery_config_${CONFIG_NAME}_${PROVIDER}_${UNIQUE_ID}.yaml"
 
-        sed -e "s/__INPUT__/$INPUT/" \
-            -e "s/__ARRIVALCOUNT__/$ARRIVALCOUNT/" "$SCENARIO_PATH" > "$TEMP_ARTILLERY_CONFIG"
+        sed -e "s/__INPUT__/$INPUT_PARAM/" "$SCENARIO_PATH" > "$TEMP_ARTILLERY_CONFIG"
         
         echo "Running Artillery for provider: $PROVIDER"
         echo "Artillery Config: $TEMP_ARTILLERY_CONFIG"
         
         # Execute Artillery and capture specific output lines
-        artillery run "$TEMP_ARTILLERY_CONFIG" -t "$TARGET_URL" | grep -E "Unique ID:|Pi:|Trials:" >> "$TRIGGER_LOG"
+        artillery run "$TEMP_ARTILLERY_CONFIG" -t "$TARGET_URL" | grep -E "Unique ID:|Input:|Cold Start:" >> "$TRIGGER_LOG"
         
         echo "Artillery run for $PROVIDER completed. Output appended to $TRIGGER_LOG"
         
@@ -139,14 +145,9 @@ for provider in $CLOUD_PROVIDERS; do
         rm -f "$TEMP_ARTILLERY_CONFIG"
         echo "Temporary Artillery config '$TEMP_ARTILLERY_CONFIG' deleted."
 
-        # Resolve the absolute path of the current script directory
-        SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-
-        # Compute the absolute path to log_retrieval
-        LOG_RETRIEVAL_PATH="$(cd "$SCRIPT_DIR/../../" && pwd)/log_retrieval.sh"
-
         # Run the log_retrieval script
-        "$LOG_RETRIEVAL_PATH" "$CONFIG_NAME"
+        sleep 15
+        "$LOG_RETRIEVAL_PATH" "$CONFIG_NAME" "$LOG_ID" "$REGION"
 
         LOG_FILE="${TRIGGER_LOG%.tmp}.log"
 
@@ -156,20 +157,23 @@ for provider in $CLOUD_PROVIDERS; do
         # Ensure batch_cost is numeric, otherwise skip
         if [[ "$batch_cost" =~ ^[0-9]+(\.[0-9]+)?$ ]]; then
             # Use awk for floating-point addition
-            total_cost=$(awk -v total="$total_cost" -v batch="$batch_cost" 'BEGIN { printf "%.10f", total + batch }')
+            partial_cost=$(awk -v total="$partial_cost" -v batch="$batch_cost" 'BEGIN { printf "%.10f", total + batch }')
         else
             echo "Warning: batch_cost is not numeric: '$batch_cost'. Skipping cost addition." >&2
         fi
 
-        echo "Batch $current_batch cost: $batch_cost | Total cost: $total_cost | Budget: $BUDGET"
+        echo "Batch $current_batch cost: $batch_cost | Total cost: $partial_cost | Budget: $BUDGET"
 
         # Use awk for floating-point comparison
-        if (( $(awk -v total="$total_cost" -v budget="$BUDGET" 'BEGIN { print (total >= budget) }') )); then
+        if (( $(awk -v total="$partial_cost" -v budget="$BUDGET" 'BEGIN { print (total >= (budget / 2)) }') )); then
             echo "Budget exceeded. Stopping execution."
             break
         fi
     done
+    total_cost=$(echo "$total_cost + $partial_cost" | bc)
 done
+
+echo "Total cost of execution: $total_cost"
 
 echo "===================================================================="
 echo " Money-Limited Trigger: All Artillery runs completed for '${CONFIG_NAME}'."

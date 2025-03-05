@@ -1,5 +1,18 @@
+var coldStart = true;
+let invocationCount = 0;
+
 exports.handler = async (event, context) => {
     let uniqueId = context.awsRequestId;
+    invocationCount++;
+
+    const isWarmUp = invocationCount < 5; // Consider the first 4 as "warm-up"
+
+    // Adding cold start detection
+    var markColdStart = false;
+    if (coldStart) {
+        coldStart = false;
+        markColdStart = true;
+    }
 
     // Handle trials from both query parameters and request body
     const queryTrials = event.queryStringParameters && event.queryStringParameters.trials
@@ -37,6 +50,8 @@ exports.handler = async (event, context) => {
         uniqueId,
         estimatedPi: pi,
         trials,
+        markColdStart,
+        isWarmUp,
     }));
 
     return {
@@ -44,7 +59,9 @@ exports.handler = async (event, context) => {
         body: JSON.stringify({
             uniqueId: uniqueId,
             estimatedPi: pi,
-            trials: trials
+            trials: trials,
+            markColdStart: markColdStart,
+            isWarmUp: isWarmUp
         }),
         headers: {
             'Content-Type': 'application/json'

@@ -33,8 +33,8 @@ echo "===================================================================="
 echo " Log Retrieval: Starting retrieval for '${CONFIG_NAME}'"
 echo "===================================================================="
 
-echo "Wait for 30 seconds to ensure logs are available in the cloud provider's log storage..."
-sleep 30
+echo "Wait for 10 seconds to ensure logs are available in the cloud provider's log storage..."
+sleep 10
 
 # Load the artillery scenarios from the configuration
 CONFIG_PATH="configurations/${CONFIG_NAME}.yaml"
@@ -63,13 +63,16 @@ done
 # Add a counter to avoid the RATE_LIMIT_EXCEEDED for GCP
 # Also add a LOOP_TIME of 60 seconds
 API_CALL_COUNT=0
-API_CALL_LIMIT=60
+API_CALL_LIMIT=50
 WINDOW_DURATION=100
 
 # Method that avoids GCP to exceed the rate limit
 enforce_rate_limit() {
     CURRENT_TIME=$(date +%s)
     ELAPSED_TIME=$((CURRENT_TIME - LOOP_TIME))
+
+    # echo "API CALL: $API_CALL_COUNT"
+    # echo "Time: $ELAPSED_TIME"
 
     if [ "$API_CALL_COUNT" -ge "$API_CALL_LIMIT" ]; then
         if [ "$ELAPSED_TIME" -lt "$WINDOW_DURATION" ]; then
@@ -85,183 +88,118 @@ enforce_rate_limit() {
 }
 
 retrieve_aws_logs() {
-    # Extract start-time from the log file name
     FILENAME=$(basename "$TMP_LOG_FILE" .log.tmp)
     TIMESTAMP=$(echo "$FILENAME" | grep -oE '\d{4}-\d{2}-\d{2}_\d{2}-\d{2}-\d{2}')
-
-    # Convert timestamp to epoch time (compatible with macOS and Linux)
+    
     if [[ -n "$TIMESTAMP" ]]; then
-        # Check if OS is macOS or Linux
         if [[ "$OSTYPE" == "darwin"* ]]; then
             START_TIME=$(date -j -f "%Y-%m-%d_%H-%M-%S" "$TIMESTAMP" +"%s" 2>/dev/null)
         else
             START_TIME=$(date -d "$TIMESTAMP" +"%s" 2>/dev/null)
         fi
-
-        if [[ -z "$START_TIME" ]]; then
-            echo "Failed to parse timestamp: $TIMESTAMP"
-            continue
-        fi
     else
         echo "Failed to extract timestamp from filename: $FILENAME"
-        continue
+        return
     fi
 
     END_TIME=$(date +%s)
+    touch "$LOG_FILE_NAME"
 
-    echo "Processing $TMP_LOG_FILE..."
-    > "$LOG_FILE_NAME" # Clear final log file
-
+    # Extract all Unique IDs and store original log lines
+    UNIQUE_IDS=()
+    LOG_CONTENTS=()
 
     while read -r LINE; do
-        echo "$LINE" >> "$LOG_FILE_NAME" # Write the current line to the final log
+        LOG_CONTENTS+=("$LINE")  # Store original line
+        # echo "$LINE" >> "$LOG_FILE_NAME"
+        if [[ "$LINE" == Unique\ ID:* ]]; then
+            ID=$(echo "$LINE" | awk -F "Unique ID: " '{print $2}' | tr -d ',')
+            UNIQUE_IDS+=("$ID")
+        fi
+    done < "$TMP_LOG_FILE"
+
+    # **Batch Query: Retrieve ALL logs at once**
+    FILTERED_LOGS=$(aws logs filter-log-events \
+        --log-group-name "$LOG_GROUP" \
+        --filter-pattern "\"REPORT\"" \
+        --start-time $((START_TIME * 1000)) \
+        --end-time $((END_TIME * 1000)) \
+        --region "$REGION_AWS" \
+        --output json)
+
+    touch "$LOG_FILE_NAME" 
+
+    for LINE in "${LOG_CONTENTS[@]}"; do
+        echo "$LINE" >> "$LOG_FILE_NAME"
 
         if [[ "$LINE" == Unique\ ID:* ]]; then
             ID=$(echo "$LINE" | awk -F "Unique ID: " '{print $2}' | tr -d ',')
 
-            # Use filter-log-events to retrieve logs for AWS
-            FILTERED_LOGS=$(aws logs filter-log-events \
-                --log-group-name "$LOG_GROUP" \
-                --filter-pattern "\"REPORT\" \"$ID\"" \
-                --start-time $((START_TIME * 1000)) \
-                --end-time $((END_TIME * 1000)) \
-                --region "$REGION_AWS" \
-                --output json)
+            BILLED_DURATION=$(echo "$FILTERED_LOGS" | jq -r --arg id "$ID" '.events[]?.message | select(test($id))' | grep "Billed Duration" | awk -F "Billed Duration: " '{print $2}' | awk '{print $1}')
 
-            # Extract Billed Duration from the logs
-            BILLED_DURATION=$(echo "$FILTERED_LOGS" | \
-                jq -r '.events[]?.message' | \
-                grep "Billed Duration" | awk -F "Billed Duration: " '{print $2}' | awk '{print $1}')
-            
-            if [ -n "$BILLED_DURATION" ]; then
+            if [[ -n "$BILLED_DURATION" ]]; then
                 echo "Billed Duration for Request $ID: $BILLED_DURATION ms" >> "$LOG_FILE_NAME"
             else
                 echo "Billed Duration for Request $ID: Not Found" >> "$LOG_FILE_NAME"
             fi
-            
-            if [ -z "$FILTERED_LOGS" ]; then
-                echo "Execution log for ID $ID not found."
-                echo "Execution time for ID $ID: Not Found" >> "$LOG_FILE_NAME"
-                continue
-            fi
         fi
-    done < "$TMP_LOG_FILE"
+    done
 }
 
 retrieve_gcp_logs() {
-    # Extract start-time from the log file name
-    LOOP_TIME=$(date +%s)
     FILENAME=$(basename "$TMP_LOG_FILE" .log.tmp)
     TIMESTAMP=$(echo "$FILENAME" | grep -oE '\d{4}-\d{2}-\d{2}_\d{2}-\d{2}-\d{2}')
 
-    # Convert timestamp to epoch time (compatible with macOS and Linux)
     if [[ -n "$TIMESTAMP" ]]; then
-        # Check if OS is macOS or Linux
         if [[ "$OSTYPE" == "darwin"* ]]; then
             START_TIME=$(date -j -f "%Y-%m-%d_%H-%M-%S" "$TIMESTAMP" +"%Y-%m-%dT%H:%M:%S%z" 2>/dev/null | sed 's/\(.\{22\}\)/\1:/')
         else
             START_TIME=$(date -d "$TIMESTAMP" +"%s" 2>/dev/null)
         fi
-
-        if [[ -z "$START_TIME" ]]; then
-            echo "Failed to parse timestamp: $TIMESTAMP"
-            continue
-        fi
     else
         echo "Failed to extract timestamp from filename: $FILENAME"
-        continue
+        return
     fi
 
     END_TIME=$(date +"%Y-%m-%dT%H:%M:%S%z" | sed 's/\(.\{22\}\)/\1:/')
+    
+    # Ensure the final log file exists (do not truncate yet)
+    touch "$LOG_FILE_NAME"
 
-    echo "Processing $TMP_LOG_FILE..."
-    > "$LOG_FILE_NAME" # Clear final log file
+    # 1) Read all GCP logs in one go.
+    FILTERED_LOGS=$(gcloud logging read \
+        "resource.type=\"cloud_function\" AND timestamp>=\"$START_TIME\" AND timestamp<=\"$END_TIME\"" \
+        --project="$PROJECT_ID" \
+        --format=json)
 
+    # 2) Truncate/clear the final log file, so we can rewrite lines in correct order
+    touch "$LOG_FILE_NAME"
 
+    # 3) Process each line from the .tmp file in a single pass
     while read -r LINE; do
-        echo "$LINE" >> "$LOG_FILE_NAME" # Write the current line to the final log
+        # Write the line (Pi, Cold Start, or anything else) to the final log
+        echo "$LINE" >> "$LOG_FILE_NAME"
 
+        # If it's a Unique ID line, retrieve & print the associated execution time right after it
         if [[ "$LINE" == Unique\ ID:* ]]; then
             ID=$(echo "$LINE" | awk -F "Unique ID: " '{print $2}' | tr -d ',')
 
-            ((API_CALL_COUNT++))
-            enforce_rate_limit
+            # Use endswith($id) to match if .trace ends with the same string
+            EXECUTION_TIME=$(echo "$FILTERED_LOGS" | jq -r --arg id "$ID" '
+                .[]
+                | select(.trace? | endswith($id))        # .trace ends with the unique ID
+                | select((.textPayload? // "")          # textPayload not null
+                  | test("Function execution took"))     # must contain the phrase
+                | .textPayload
+            ' | sed -nE 's/.*Function execution took ([0-9]+) ms.*/\1/p')
 
-            # Use gcloud logging read to retrieve logs for GCP
-            FILTERED_LOGS=$(gcloud logging read \
-                "resource.type=\"cloud_function\" AND trace:\"projects/$PROJECT_ID/traces/$ID\" AND timestamp>=\"$START_TIME\" AND timestamp<=\"$END_TIME\"" \
-                --project="$PROJECT_ID" \
-                --limit=1 \
-                --format=json)
-
-            if [ -z "$FILTERED_LOGS" ]; then
-                echo "Execution time for Trace ID $ID: Not Found" >> "$LOG_FILE_NAME"
-                continue
-            fi
-
-            # Extract execution time
-            EXECUTION_TIME=$(echo "$FILTERED_LOGS" | jq -r '.[] | select(.textPayload | contains("Function execution took")) | .textPayload' \
-                | awk -F "Function execution took " '{print $2}' | awk -F " ms" '{print $1}')
-
-            if [ -n "$EXECUTION_TIME" ]; then
+            if [[ -n "$EXECUTION_TIME" ]]; then
                 echo "Execution Time for Trace ID $ID: $EXECUTION_TIME ms" >> "$LOG_FILE_NAME"
             else
                 echo "Execution Time for Trace ID $ID: Not Found" >> "$LOG_FILE_NAME"
             fi
         fi
     done < "$TMP_LOG_FILE"
-}
-
-# Function to recheck logs if there are any not found durations (GCP will for sure have many of them - as the Rate Limit always is exceeded - a better way to read logs would remove the necessity of this function)
-recheck_logs() {
-    LOG_FILE_NAME="$1"
-
-    echo "Rechecking for 'Not Found' Trace IDs in $LOG_FILE_NAME..."
-
-    # Make a temporary file to store updates
-    TEMP_FILE=$(mktemp)
-
-    while IFS= read -r LINE; do
-        # Check if the line contains "Not Found"
-        if [[ "$LINE" == *"Execution Time for Trace ID"*": Not Found" ]]; then
-            TRACE_ID=$(echo "$LINE" | awk -F "Trace ID " '{print $2}' | awk -F ": Not Found" '{print $1}')
-
-            enforce_rate_limit
-
-            # Query logs for the execution time using the trace ID
-            EXECUTION_LOG=$(gcloud logging read \
-                "resource.type=\"cloud_function\" AND trace:\"projects/$PROJECT_ID/traces/$ID\" AND textPayload:\"Function execution took\"" \
-                --project="$PROJECT_ID" \
-                --limit=1 \
-                --format=json)
-
-            if [ -n "$EXECUTION_LOG" ]; then
-                # Extract execution time
-                EXECUTION_TIME=$(echo "$EXECUTION_LOG" | jq -r '.[] | select(.textPayload | contains("Function execution took")) | .textPayload' \
-                    | awk -F "Function execution took " '{print $2}' | awk -F " ms" '{print $1}')
-
-                if [ -n "$EXECUTION_TIME" ]; then
-                    echo "Execution Time for Trace ID $ID: $EXECUTION_TIME ms" >> "$TEMP_FILE"
-                    echo "Updated Execution Time for Trace ID $ID in $LOG_FILE_NAME"
-                else
-                    echo "$LINE" >> "$TEMP_FILE"  # Keep the original line if not found
-                fi
-            else
-                echo "$LINE" >> "$TEMP_FILE"  # Keep the original line if no log is found
-            fi
-
-            # Increment API call counter
-            ((API_CALL_COUNT++))
-        else
-            # Copy lines that don't require rechecking
-            echo "$LINE" >> "$TEMP_FILE"
-        fi
-    done < "$LOG_FILE_NAME"
-
-    # Replace the original log file with the updated content
-    mv "$TEMP_FILE" "$LOG_FILE_NAME"
-
-    echo "Finished rechecking 'Not Found' Trace IDs in $LOG_FILE_NAME."
 }
 
 for TMP_LOG_FILE in "$LOG_DIR"/*.tmp; do
@@ -271,12 +209,12 @@ for TMP_LOG_FILE in "$LOG_DIR"/*.tmp; do
 
         LOG_FILE_NAME="logs/tmp/${CONFIG_NAME}/$(basename "$TMP_LOG_FILE" .tmp).log"
 
+        echo "Checking: $LOG_FILE_NAME"
+
         if [[ "$PROVIDER" == "aws" ]]; then
             retrieve_aws_logs
         elif [[ "$PROVIDER" == "gcp" ]]; then
             retrieve_gcp_logs
-            sleep 100
-            recheck_logs "$LOG_FILE_NAME"
         else
             echo "Error: Unsupported provider '$PROVIDER'. Please add retrieval logic for this provider."
             # Exit the script if an unsupported provider is encountered
